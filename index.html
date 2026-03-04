@@ -8,31 +8,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink: #0e0c0a;
-  --paper: #f7f3ec;
-  --cream: #faf8f4;
-  --gold: #b8892a;
-  --gold-light: #d4a843;
-  --gold-pale: #f0e4c8;
-  --slate: #2c3a42;
-  --muted: #8a7e6e;
-  --danger: #b83232;
-  --safe: #2e7d52;
-  --warn: #c47a1e;
-  --border: rgba(184,137,42,0.2);
+  --ink:       #1a1a1a;
+  --white:     #ffffff;
+  --off:       #f9f8f6;
+  --gold:      #b8963e;
+  --gold-lt:   #d4ae5e;
+  --gold-pale: #f5edd8;
+  --muted:     #787168;
+  --subtle:    #e8e4dc;
+  --danger:    #b03a2e;
+  --safe:      #1e6e4a;
+  --dark:      #111111;
+  --dark-card: #181818;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
 
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
   padding:1.1rem 5%;
-  background:rgba(250,248,244,0.96);
+  background:rgba(255,255,255,0.97);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--subtle);
 }
 .nav-logo{
   font-family:'Playfair Display',serif;
@@ -43,10 +43,53 @@ nav{
 .nav-links{display:flex;gap:2rem;align-items:center;}
 .nav-links a{
   font-size:0.78rem;font-weight:500;letter-spacing:0.1em;
-  text-transform:uppercase;text-decoration:none;color:var(--muted);
+  text-transform:uppercase;text-decoration:none;color:#888;
   transition:color 0.2s;
 }
 .nav-links a:hover{color:var(--gold);}
+
+/* Hamburger */
+.hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:2.2rem;height:2.2rem;cursor:pointer;
+  background:none;border:none;padding:0.2rem;z-index:300;
+}
+.hamburger span{
+  display:block;height:2px;width:100%;
+  background:var(--ink);border-radius:2px;
+  transition:all 0.3s ease;transform-origin:center;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* Mobile drawer */
+.mobile-menu{
+  display:none;
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:var(--dark);z-index:250;
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:2.5rem;opacity:0;
+  transition:opacity 0.3s ease;
+  pointer-events:none;
+}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;font-weight:700;color:#fff;
+  text-decoration:none;letter-spacing:-0.01em;
+  transition:color 0.2s;
+}
+.mobile-menu a:hover{color:var(--gold);}
+.mobile-menu .btn-gold{
+  font-family:'DM Sans',sans-serif;
+  font-size:1rem;margin-top:1rem;
+}
+.mobile-close{
+  position:absolute;top:1.5rem;right:5%;
+  background:none;border:none;cursor:pointer;
+  font-size:1.8rem;color:#fff;line-height:1;
+}
 .btn{
   display:inline-block;text-decoration:none;
   font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:0.04em;
@@ -54,7 +97,7 @@ nav{
   transition:all 0.2s;cursor:pointer;border:none;font-size:0.9rem;
 }
 .btn-gold{background:var(--gold);color:#fff;}
-.btn-gold:hover{background:#9a7120;color:#fff;}
+.btn-gold:hover{background:#9a7520;color:#fff;}
 .btn-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold);}
 .btn-outline:hover{background:var(--gold);color:#fff;}
 .btn-sm{padding:0.55rem 1.3rem;font-size:0.82rem;}
@@ -73,13 +116,13 @@ nav{
   top:-200px;right:-200px;
   width:700px;height:700px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(184,137,42,0.08) 0%,transparent 70%);
+  background:radial-gradient(circle,rgba(184,150,62,0.07) 0%,transparent 68%);
   pointer-events:none;
 }
 .hero-eyebrow{
   display:inline-block;
   font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--gold);border:1px solid var(--border);
+  color:var(--gold);border:1px solid var(--subtle);
   padding:0.35rem 0.9rem;border-radius:2px;margin-bottom:1.5rem;
   background:var(--gold-pale);
 }
@@ -92,26 +135,27 @@ nav{
 .hero h1 em{font-style:italic;color:var(--gold);}
 .hero-sub{
   font-size:1.1rem;font-weight:300;line-height:1.7;
-  color:#4a4232;max-width:480px;margin-bottom:2.5rem;
+  color:#3a4560;max-width:480px;margin-bottom:2.5rem;
 }
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
 .hero-stats{
   display:flex;gap:2.5rem;margin-top:3rem;
-  padding-top:2rem;border-top:1px solid var(--border);
+  padding-top:2rem;border-top:1px solid var(--subtle);
 }
 .stat-num{
   font-family:'Playfair Display',serif;
   font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;
 }
-.stat-label{font-size:0.78rem;color:var(--muted);margin-top:0.3rem;font-weight:400;}
+.stat-label{font-size:0.78rem;color:#888;margin-top:0.3rem;font-weight:400;}
 
 /* Hero right — score preview */
 .hero-card{
   background:#fff;
-  border:1px solid var(--border);
+  border:1px solid var(--subtle);
+  border-top:3px solid var(--gold);
   border-radius:4px;
   padding:2.5rem;
-  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+  box-shadow:0 24px 64px rgba(0,0,0,0.09);
   position:relative;
 }
 .hero-card::before{
@@ -126,7 +170,7 @@ nav{
   font-family:'Playfair Display',serif;
   font-size:1rem;font-weight:700;margin-bottom:0.3rem;color:var(--ink);
 }
-.card-sub{font-size:0.78rem;color:var(--muted);margin-bottom:1.8rem;}
+.card-sub{font-size:0.78rem;color:#888;margin-bottom:1.8rem;}
 
 .score-row{margin-bottom:1.5rem;}
 .score-label{
@@ -141,7 +185,7 @@ nav{
 .score-label span.danger{color:var(--danger);}
 .score-label span.safe{color:var(--safe);}
 .bar-track{
-  height:10px;background:#ede9df;border-radius:10px;overflow:hidden;
+  height:10px;background:#ece8e0;border-radius:10px;overflow:hidden;
 }
 .bar-fill{
   height:100%;border-radius:10px;
@@ -149,24 +193,24 @@ nav{
 }
 .bar-danger{background:linear-gradient(90deg,var(--warn),var(--danger));}
 .bar-safe{background:linear-gradient(90deg,#4caf88,var(--safe));}
-.score-note{font-size:0.73rem;color:var(--muted);margin-top:0.4rem;}
+.score-note{font-size:0.73rem;color:#888;margin-top:0.4rem;}
 
-.divider-sm{height:1px;background:var(--border);margin:1.5rem 0;}
+.divider-sm{height:1px;background:var(--subtle);margin:1.5rem 0;}
 
 .tag-list{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.8rem;}
 .tag{
   font-size:0.7rem;font-weight:500;letter-spacing:0.04em;
   padding:0.25rem 0.6rem;border-radius:2px;
 }
-.tag-red{background:#fdecea;color:var(--danger);}
-.tag-green{background:#e8f5ee;color:var(--safe);}
-.tag-gold{background:var(--gold-pale);color:#7a5a10;}
+.tag-red{background:#fcecea;color:var(--danger);}
+.tag-green{background:#e6f4ee;color:var(--safe);}
+.tag-gold{background:var(--gold-pale);color:#7a5510;}
 
 .report-name{
   font-family:'Playfair Display',serif;
-  font-size:0.95rem;font-style:italic;color:var(--muted);
+  font-size:0.95rem;font-style:italic;color:#aaa;
   text-align:center;margin-top:1.5rem;
-  padding-top:1.2rem;border-top:1px solid var(--border);
+  padding-top:1.2rem;border-top:1px solid var(--subtle);
 }
 
 /* ── SECTION SHARED ── */
@@ -182,18 +226,18 @@ section{padding:6rem 5%;}
 }
 .section-sub{
   font-size:1rem;font-weight:300;line-height:1.75;
-  color:#4a4232;max-width:600px;
+  color:#3a4560;max-width:600px;
 }
 
 /* ── WHAT YOU GET ── */
-.what{background:var(--paper);}
+.what{background:var(--off);}
 .what-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:2rem;margin-top:3.5rem;
 }
 .what-card{
-  background:var(--cream);
-  border:1px solid var(--border);
+  background:var(--white);
+  border:1px solid var(--subtle);
   border-radius:3px;padding:2rem;
   transition:box-shadow 0.3s,transform 0.3s;
 }
@@ -208,13 +252,13 @@ section{padding:6rem 5%;}
   font-family:'Playfair Display',serif;
   font-size:1.15rem;font-weight:700;margin-bottom:0.6rem;
 }
-.what-card p{font-size:0.88rem;line-height:1.7;color:#5a5040;}
+.what-card p{font-size:0.88rem;line-height:1.7;color:#344258;}
 
 /* ── SCORING SYSTEM ── */
-.scoring{background:var(--ink);}
+.scoring{background:var(--dark);}
 .scoring .section-title{color:#fff;}
-.scoring .section-label{color:var(--gold-light);}
-.scoring .section-sub{color:#b0a898;}
+.scoring .section-label{color:var(--gold-lt);}
+.scoring .section-sub{color:#999;}
 .scores-grid{
   display:grid;grid-template-columns:1fr 1fr;
   gap:2rem;margin-top:3.5rem;
@@ -223,16 +267,16 @@ section{padding:6rem 5%;}
   border-radius:3px;padding:2.5rem;
 }
 .score-card-danger{
-  background:#1a0d0d;
-  border:1px solid rgba(184,50,50,0.3);
+  background:#1e1612;
+  border:1px solid rgba(184,150,62,0.2);
 }
 .score-card-safe{
-  background:#0a1a12;
-  border:1px solid rgba(46,125,82,0.3);
+  background:#121812;
+  border:1px solid rgba(255,255,255,0.08);
 }
 .score-card h3{
   font-family:'Playfair Display',serif;
-  font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:0.5rem;
+  font-size:1.5rem;font-weight:700;color:#f0f0f0;margin-bottom:0.5rem;
 }
 .score-card .score-tagline{
   font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;
@@ -240,12 +284,12 @@ section{padding:6rem 5%;}
 }
 .score-card-danger .score-tagline{color:rgba(184,50,50,0.8);}
 .score-card-safe .score-tagline{color:rgba(46,125,82,0.8);}
-.score-card p{font-size:0.9rem;line-height:1.7;color:#8a8070;margin-bottom:1.5rem;}
+.score-card p{font-size:0.9rem;line-height:1.7;color:#aaa;margin-bottom:1.5rem;}
 
 .factor-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
 .factor-list li{
   display:flex;align-items:flex-start;gap:0.7rem;
-  font-size:0.85rem;color:#c8c0b0;line-height:1.5;
+  font-size:0.85rem;color:#bbb;line-height:1.5;
 }
 .factor-dot{
   width:6px;height:6px;border-radius:50%;
@@ -262,13 +306,13 @@ section{padding:6rem 5%;}
 }
 
 /* ── SAMPLE REPORT SECTION ── */
-.sample{background:var(--paper);}
+.sample{background:var(--white);}
 .sample-layout{
   display:grid;grid-template-columns:1fr 1.2fr;
   gap:4rem;align-items:start;margin-top:3.5rem;
 }
 .sample-toc{
-  background:#fff;border:1px solid var(--border);
+  background:var(--white);border:1px solid var(--subtle);
   border-radius:3px;padding:2rem;
 }
 .sample-toc h4{
@@ -277,7 +321,7 @@ section{padding:6rem 5%;}
 }
 .toc-item{
   display:flex;align-items:center;gap:0.8rem;
-  padding:0.75rem 0;border-bottom:1px solid var(--border);
+  padding:0.75rem 0;border-bottom:1px solid var(--subtle);
   font-size:0.88rem;
 }
 .toc-item:last-child{border-bottom:none;}
@@ -286,7 +330,7 @@ section{padding:6rem 5%;}
   font-size:0.85rem;font-weight:700;color:var(--gold);
   width:1.2rem;flex-shrink:0;
 }
-.toc-text{color:var(--slate);}
+.toc-text{color:#444;}
 .toc-tag{
   margin-left:auto;font-size:0.65rem;font-weight:600;
   letter-spacing:0.06em;text-transform:uppercase;
@@ -296,7 +340,7 @@ section{padding:6rem 5%;}
 
 .sample-highlights{display:flex;flex-direction:column;gap:1.5rem;}
 .highlight-box{
-  background:#fff;border:1px solid var(--border);
+  background:var(--white);border:1px solid var(--subtle);
   border-radius:3px;padding:1.5rem 1.8rem;
   border-left:3px solid var(--gold);
 }
@@ -304,24 +348,24 @@ section{padding:6rem 5%;}
   font-family:'Playfair Display',serif;
   font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;
 }
-.highlight-box p{font-size:0.88rem;line-height:1.7;color:#5a5040;}
+.highlight-box p{font-size:0.88rem;line-height:1.7;color:#344258;}
 
 /* ── PROCESS ── */
-.process{background:var(--cream);}
+.process{background:var(--off);}
 .process-steps{
   display:grid;grid-template-columns:repeat(4,1fr);
   gap:0;margin-top:3.5rem;position:relative;
 }
 .process-steps::before{
   content:'';position:absolute;top:2rem;left:12.5%;right:12.5%;
-  height:1px;background:var(--border);z-index:0;
+  height:1px;background:var(--subtle);z-index:0;
 }
 .process-step{
   text-align:center;padding:0 1rem;position:relative;z-index:1;
 }
 .step-circle{
   width:4rem;height:4rem;border-radius:50%;
-  background:var(--cream);border:1.5px solid var(--gold);
+  background:#f4f6f9;border:1.5px solid var(--gold);
   display:flex;align-items:center;justify-content:center;
   margin:0 auto 1.2rem;
   font-family:'Playfair Display',serif;
@@ -331,23 +375,23 @@ section{padding:6rem 5%;}
   font-family:'Playfair Display',serif;
   font-size:1rem;font-weight:700;margin-bottom:0.5rem;
 }
-.process-step p{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+.process-step p{font-size:0.82rem;color:#888;line-height:1.6;}
 
 /* ── PRICING ── */
-.pricing{background:var(--paper);}
+.pricing{background:var(--off);}
 .pricing-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:1.5rem;margin-top:3.5rem;align-items:start;
 }
 .price-card{
-  background:var(--cream);border:1px solid var(--border);
+  background:var(--white);border:1px solid var(--subtle);
   border-radius:3px;padding:2.2rem;
   transition:box-shadow 0.3s,transform 0.3s;
   position:relative;
 }
 .price-card:hover{box-shadow:0 16px 50px rgba(0,0,0,0.09);transform:translateY(-4px);}
 .price-card.featured{
-  background:var(--ink);border-color:var(--gold);
+  background:var(--dark);border-color:var(--gold);
 }
 .featured-badge{
   position:absolute;top:-1px;left:50%;transform:translateX(-50%);
@@ -370,43 +414,43 @@ section{padding:6rem 5%;}
   margin-bottom:0.2rem;
 }
 .price-amount sup{font-size:1.2rem;vertical-align:super;}
-.price-period{font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem;}
-.price-card.featured .price-period{color:#8a8070;}
+.price-period{font-size:0.78rem;color:#999;margin-bottom:1.5rem;}
+.price-card.featured .price-period{color:#888;}
 .price-desc{
-  font-size:0.88rem;line-height:1.6;color:#5a5040;
-  padding-bottom:1.5rem;border-bottom:1px solid var(--border);
+  font-size:0.88rem;line-height:1.6;color:#344258;
+  padding-bottom:1.5rem;border-bottom:1px solid var(--subtle);
   margin-bottom:1.5rem;
 }
-.price-card.featured .price-desc{color:#a09888;border-color:rgba(255,255,255,0.08);}
+.price-card.featured .price-desc{color:#aaa;border-color:rgba(255,255,255,0.08);}
 .price-features{list-style:none;display:flex;flex-direction:column;gap:0.65rem;margin-bottom:2rem;}
 .price-features li{
   display:flex;align-items:flex-start;gap:0.6rem;
-  font-size:0.85rem;color:#4a4232;line-height:1.5;
+  font-size:0.85rem;color:#3a4560;line-height:1.5;
 }
-.price-card.featured .price-features li{color:#c8c0b0;}
+.price-card.featured .price-features li{color:#bbb;}
 .check{color:var(--safe);font-size:0.9rem;flex-shrink:0;margin-top:0.05rem;}
 .price-card.featured .btn-gold{width:100%;text-align:center;}
 .price-card:not(.featured) .btn-outline{width:100%;text-align:center;}
 
 .pricing-note{
   text-align:center;margin-top:2rem;
-  font-size:0.82rem;color:var(--muted);
+  font-size:0.82rem;color:#999;
 }
 
 /* ── COMPETITOR ── */
-.competitors{background:var(--cream);}
+.competitors{background:var(--white);}
 .comp-table-wrap{margin-top:3rem;overflow-x:auto;}
 table{width:100%;border-collapse:collapse;font-size:0.88rem;}
-thead tr{background:var(--ink);}
+thead tr{background:var(--dark);}
 thead th{
   padding:1rem 1.2rem;text-align:left;
   font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
   color:var(--gold-light);
 }
-tbody tr{border-bottom:1px solid var(--border);}
-tbody tr:nth-child(even){background:var(--paper);}
+tbody tr{border-bottom:1px solid var(--subtle);}
+tbody tr:nth-child(even){background:var(--off);}
 tbody tr.ours{background:var(--gold-pale);}
-tbody td{padding:0.9rem 1.2rem;color:#4a4232;line-height:1.4;}
+tbody td{padding:0.9rem 1.2rem;color:#3a4560;line-height:1.4;}
 tbody tr.ours td{color:var(--ink);font-weight:500;}
 .comp-us{
   font-weight:700;color:var(--gold);
@@ -416,16 +460,16 @@ tbody tr.ours td{color:var(--ink);font-weight:500;}
   display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;
   text-transform:uppercase;padding:0.15rem 0.5rem;border-radius:2px;
 }
-.badge-free{background:#e8f0fe;color:#1a56db;}
+.badge-free{background:#eee;color:#555;}
 .badge-paid{background:#e8f5ee;color:var(--safe);}
 .badge-us{background:var(--gold-pale);color:var(--gold);}
 
 /* ── CREDENTIALS ── */
-.credentials{background:var(--paper);}
+.credentials{background:var(--off);}
 .creds-intro{max-width:620px;margin-bottom:3.5rem;}
 .creds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .cred-card{
-  background:var(--cream);border:1px solid var(--border);
+  background:var(--white);border:1px solid var(--subtle);
   border-radius:3px;padding:1.8rem;
 }
 .cred-icon{font-size:1.6rem;margin-bottom:0.8rem;}
@@ -433,32 +477,32 @@ tbody tr.ours td{color:var(--ink);font-weight:500;}
   font-family:'Playfair Display',serif;
   font-size:1rem;font-weight:700;margin-bottom:0.4rem;
 }
-.cred-card p{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+.cred-card p{font-size:0.82rem;color:#888;line-height:1.6;}
 .creds-note{
   margin-top:2.5rem;padding:1.5rem 2rem;
-  background:var(--gold-pale);border-left:3px solid var(--gold);
+  background:#f4f6f9;border-left:3px solid var(--gold);
   border-radius:0 3px 3px 0;
-  font-size:0.9rem;line-height:1.7;color:#5a4010;max-width:680px;
+  font-size:0.9rem;line-height:1.7;color:#3a4560;max-width:680px;
 }
 
 /* ── FAQ ── */
-.faq{background:var(--cream);}
+.faq{background:var(--white);}
 .faq-grid{
   display:grid;grid-template-columns:1fr 1fr;
   gap:1.5rem;margin-top:3rem;
 }
 .faq-item{
-  background:#fff;border:1px solid var(--border);
+  background:var(--white);border:1px solid var(--subtle);
   border-radius:3px;padding:1.8rem;
 }
 .faq-item h4{
   font-family:'Playfair Display',serif;
   font-size:1rem;font-weight:700;margin-bottom:0.6rem;
 }
-.faq-item p{font-size:0.88rem;line-height:1.7;color:#5a5040;}
+.faq-item p{font-size:0.88rem;line-height:1.7;color:#344258;}
 
 /* ── CONTACT ── */
-.contact{background:var(--ink);color:#fff;}
+.contact{background:var(--dark);color:#fff;}
 .contact .section-title{color:#fff;}
 .contact .section-label{color:var(--gold-light);}
 .contact-layout{
@@ -471,7 +515,7 @@ tbody tr.ours td{color:var(--ink);font-weight:500;}
 }
 .contact-icon{
   width:2.5rem;height:2.5rem;border-radius:50%;
-  background:rgba(184,137,42,0.15);
+  background:rgba(184,150,62,0.12);
   display:flex;align-items:center;justify-content:center;
   font-size:1rem;flex-shrink:0;
 }
@@ -479,19 +523,19 @@ tbody tr.ours td{color:var(--ink);font-weight:500;}
   font-size:0.75rem;font-weight:600;letter-spacing:0.1em;
   text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;
 }
-.contact-detail p{font-size:0.92rem;color:#c8c0b0;}
-.contact-detail a{color:#c8c0b0;text-decoration:none;}
-.contact-detail a:hover{color:var(--gold-light);}
+.contact-detail p{font-size:0.92rem;color:#bbb;}
+.contact-detail a{color:#bbb;text-decoration:none;}
+.contact-detail a:hover{color:var(--gold-lt);}
 
 .contact-form{display:flex;flex-direction:column;gap:1rem;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
 .form-group{display:flex;flex-direction:column;gap:0.4rem;}
 .form-group label{
   font-size:0.75rem;font-weight:600;letter-spacing:0.08em;
-  text-transform:uppercase;color:#8a8070;
+  text-transform:uppercase;color:#aaa;
 }
 .form-group input,.form-group select,.form-group textarea{
-  background:rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.06);
   border:1px solid rgba(255,255,255,0.12);
   border-radius:2px;padding:0.75rem 1rem;
   color:#fff;font-family:'DM Sans',sans-serif;font-size:0.9rem;
@@ -502,12 +546,12 @@ tbody tr.ours td{color:var(--ink);font-weight:500;}
 }
 .form-group select option{background:var(--ink);color:#fff;}
 .form-group textarea{resize:vertical;min-height:100px;}
-.form-group input::placeholder,.form-group textarea::placeholder{color:#5a5040;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#344258;}
 .contact-form .btn-gold{align-self:flex-start;}
 
 /* ── FOOTER ── */
 footer{
-  background:#080806;padding:2rem 5%;
+  background:#0d0d0d;padding:2rem 5%;
   display:flex;align-items:center;justify-content:space-between;
   border-top:1px solid rgba(255,255,255,0.06);
 }
@@ -516,9 +560,9 @@ footer{
   font-size:1.1rem;font-weight:900;color:#fff;
 }
 .footer-logo em{font-style:italic;color:var(--gold);}
-.footer-copy{font-size:0.78rem;color:#5a5040;}
+.footer-copy{font-size:0.78rem;color:#344258;}
 .footer-links{display:flex;gap:1.5rem;}
-.footer-links a{font-size:0.78rem;color:#5a5040;text-decoration:none;}
+.footer-links a{font-size:0.78rem;color:#344258;text-decoration:none;}
 .footer-links a:hover{color:var(--gold);}
 
 /* ── ANIMATIONS ── */
@@ -542,8 +586,11 @@ footer{
   .sample-layout,.creds-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
   nav{padding:1rem 5%;}
-  .nav-links{gap:1rem;}
   footer{flex-direction:column;gap:1rem;text-align:center;}
+  /* Show hamburger, hide desktop links */
+  .hamburger{display:flex;}
+  .nav-links{display:none;}
+  .mobile-menu{display:flex;}
 }
 </style>
 </head>
@@ -559,12 +606,25 @@ footer{
     <a href="#pricing">Pricing</a>
     <a href="#contact" class="btn btn-gold btn-sm">Get My Report</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="#what" class="mobile-link">What You Get</a>
+  <a href="#scoring" class="mobile-link">Scoring</a>
+  <a href="#sample" class="mobile-link">Sample Report</a>
+  <a href="#pricing" class="mobile-link">Pricing</a>
+  <a href="#contact" class="btn btn-gold mobile-link">Get My Report</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow animate delay-1">AI Career Intelligence · Since 2025</div>
+    <div class="hero-eyebrow animate delay-1">Career Intelligence · Est. 2025</div>
     <h1 class="animate delay-2">Will AI Take<br><em>Your Job?</em><br>Find Out First.</h1>
     <p class="hero-sub animate delay-3">
       FutureProof delivers a deep, personalised professional intelligence report — 
@@ -572,7 +632,7 @@ footer{
       and precisely how to pivot before the tide turns.
     </p>
     <div class="hero-actions animate delay-4">
-      <a href="#pricing" class="btn btn-gold">Order My Report — From €299</a>
+      <a href="#pricing" class="btn btn-gold">Order My Report — From €149</a>
       <a href="#sample" class="btn btn-outline">See a Sample</a>
     </div>
     <div class="hero-stats animate delay-4">
@@ -638,8 +698,7 @@ footer{
   <div class="section-label">What You Receive</div>
   <h2 class="section-title">Not a Quiz. Not a Guess.<br>A Real Professional Report.</h2>
   <p class="section-sub">
-    Every FutureProof report is a thoroughly researched, 15–25 page document 
-    built around your actual CV, role, industry, seniority, and geography.
+    Every FutureProof report is a thoroughly researched, 15–25 page intelligence document — built around your actual CV, role, industry, seniority, and geography. Precision inputs. Expert-calibrated outputs.
   </p>
   <div class="what-grid">
     <div class="what-card">
@@ -696,11 +755,11 @@ footer{
         <li><span class="factor-dot dot-danger"></span>Geographic market maturity and regulatory AI environment</li>
       </ul>
       <div class="score-range">
-        <div class="range-block" style="background:#2e4020;"></div>
-        <div class="range-block" style="background:#5a6e20;"></div>
-        <div class="range-block" style="background:#c47a1e;"></div>
-        <div class="range-block" style="background:#a03020;"></div>
-        <div class="range-block" style="background:#7a1010;"></div>
+        <div class="range-block" style="background:#2a2010;"></div>
+        <div class="range-block" style="background:#5a3a10;"></div>
+        <div class="range-block" style="background:#8a5a18;"></div>
+        <div class="range-block" style="background:#b07820;"></div>
+        <div class="range-block" style="background:#c49030;"></div>
         <span style="font-size:0.72rem;color:#6a6050;margin-left:0.5rem;">Low → Critical</span>
       </div>
     </div>
@@ -719,11 +778,11 @@ footer{
         <li><span class="factor-dot dot-safe"></span>Educational background and proximity to AI-relevant disciplines</li>
       </ul>
       <div class="score-range">
-        <div class="range-block" style="background:#0a2a18;"></div>
-        <div class="range-block" style="background:#1a4a28;"></div>
-        <div class="range-block" style="background:#2a7040;"></div>
-        <div class="range-block" style="background:#2e8050;"></div>
-        <div class="range-block" style="background:#2e9060;"></div>
+        <div class="range-block" style="background:#181a10;"></div>
+        <div class="range-block" style="background:#2a3010;"></div>
+        <div class="range-block" style="background:#3a5010;"></div>
+        <div class="range-block" style="background:#4a6818;"></div>
+        <div class="range-block" style="background:#1e6e4a;"></div>
         <span style="font-size:0.72rem;color:#6a6050;margin-left:0.5rem;">Limited → Excellent</span>
       </div>
     </div>
@@ -776,11 +835,11 @@ footer{
     <div class="sample-highlights">
       <div class="highlight-box">
         <h4>Built Around Your Actual CV</h4>
-        <p>We don't assess generic job titles. We analyse your specific responsibilities, years of experience, industry sub-sector, geographic market, seniority level, and unique skill advantages — producing insights no free tool can replicate.</p>
+        <p>Unlike generic tools that assess job titles, FutureProof processes your specific responsibilities, years of experience, industry sub-sector, geographic market, and seniority level — producing tailored insights no free tool can replicate.</p>
       </div>
       <div class="highlight-box">
         <h4>Research-Backed, Not Opinion-Based</h4>
-        <p>Every report cites current academic research, industry reports, and AI adoption data from organisations like Deloitte, McKinsey, ISPOR, and sector-specific sources. You receive a full bibliography — not a chatbot's guess.</p>
+        <p>Every report draws from current academic research, industry reports, and AI adoption data from organisations like Deloitte, McKinsey, and WEF. The methodology is grounded in peer-reviewed evidence — not guesswork.
       </div>
       <div class="highlight-box">
         <h4>Actionable in 24 Hours</h4>
@@ -812,7 +871,7 @@ footer{
     <div class="process-step">
       <div class="step-circle">3</div>
       <h4>We Research & Build</h4>
-      <p>Our analysts produce a fully personalised, research-backed report — no templates, no shortcuts.</p>
+      <p>Every report is produced by a specialist intelligence system trained on AI adoption data, labour economics research, and industry-specific disruption models — then calibrated to your exact profile.</p>
     </div>
     <div class="process-step">
       <div class="step-circle">4</div>
@@ -875,7 +934,7 @@ footer{
       <div class="price-period">one-time · delivered in 7 business days</div>
       <div class="price-desc">For senior leaders and high-stakes decisions. Includes everything in the Intelligence Report plus a live strategy session.</div>
       <ul class="price-features">
-        <li><span class="check">✓</span>Everything in The Intelligence Report</li>
+        <li><span class="check">✓</span>Everything in The FutureProof Intelligence Report</li>
         <li><span class="check">✓</span>30-min 1-on-1 strategy call</li>
         <li><span class="check">✓</span>Organisational risk note (for HR leaders)</li>
         <li><span class="check">✓</span>Industry peer benchmarking section</li>
@@ -913,7 +972,7 @@ footer{
           <td>✅ Fully — CV + questionnaire</td>
           <td>15–35 page PDF + strategy call</td>
           <td>✅ 3 detailed pathways</td>
-          <td>✅ Expert-authored</td>
+          <td>✅ Expert-calibrated</td>
         </tr>
         <tr>
           <td>TripleTen AI Risk Calculator</td>
@@ -965,7 +1024,7 @@ footer{
   <div class="section-label">Why Trust Us</div>
   <h2 class="section-title">Built on Expertise.<br>Not Algorithms.</h2>
   <div class="creds-intro">
-    <p class="section-sub">Every FutureProof report is authored by professionals with deep grounding in AI strategy, labour economics, and career development. Our methodology draws from peer-reviewed research, industry data, and real-world consulting experience.</p>
+    <p class="section-sub">Every FutureProof report is produced by an intelligence system purpose-built on a deep foundation of AI strategy research, labour economics, and career disruption data. The methodology behind every report reflects expert-level domain knowledge — rigorously sourced, and continuously refined.</p>
   </div>
   <div class="creds-grid">
     <div class="cred-card">
@@ -976,12 +1035,12 @@ footer{
     <div class="cred-card">
       <div class="cred-icon">💼</div>
       <h4>Cross-Industry Coverage</h4>
-      <p>Analysts with direct experience across pharma, finance, law, consulting, tech, logistics, and healthcare — not generalists guessing at your sector.</p>
+      <p>The FutureProof methodology covers professionals across pharma, finance, law, consulting, tech, logistics, and healthcare — built from deep, sector-specific disruption research, not generic assumptions.</p>
     </div>
     <div class="cred-card">
       <div class="cred-icon">🌍</div>
       <h4>European Market Expertise</h4>
-      <p>Deep knowledge of EU AI Act implications, GDPR, and the specific regulatory and labour market context shaping AI adoption across Europe.</p>
+      <p>FutureProof is calibrated to European market realities — including EU AI Act implications, GDPR context, and the regulatory environment shaping AI adoption across European industries.</p>
     </div>
     <div class="cred-card">
       <div class="cred-icon">📖</div>
@@ -991,7 +1050,7 @@ footer{
     <div class="cred-card">
       <div class="cred-icon">🎓</div>
       <h4>Continuing AI Education</h4>
-      <p>Our team actively pursues ongoing education in AI strategy, machine learning fundamentals, and workforce economics to stay at the frontier of this rapidly evolving field.</p>
+      <p>The intelligence behind FutureProof is continuously updated as AI capabilities evolve — drawing from the latest research in machine learning, workforce economics, and occupational risk modelling.</p>
     </div>
     <div class="cred-card">
       <div class="cred-icon">🔐</div>
@@ -1000,7 +1059,7 @@ footer{
     </div>
   </div>
   <div class="creds-note">
-    <strong>A note on transparency:</strong> FutureProof is a specialist consulting service, not a technology platform. Your report is written by a human analyst who reads your CV, researches your industry, and applies a tested methodology — not an AI tool generating generic paragraphs. That's the product. That's the difference.
+    <strong>A note on how this works:</strong> FutureProof uses a purpose-built AI intelligence system — trained on expert-level knowledge in AI adoption, occupational risk, and career strategy — to produce your report. It reads your CV, analyses your industry context, and applies a rigorous, structured methodology to every profile it processes. The result is the depth and personalisation of a bespoke consulting engagement, delivered with the consistency and speed that only a purpose-built system can provide.
   </div>
 </section>
 
@@ -1011,7 +1070,7 @@ footer{
   <div class="faq-grid">
     <div class="faq-item">
       <h4>How is this different from a free AI risk calculator?</h4>
-      <p>Free tools score your job title against a database. We read your actual CV, understand your specific responsibilities, seniority, industry context, and geographic market — then produce a bespoke strategic document. No free tool does this.</p>
+      <p>Free tools score your job title against a generic database and give you a number. FutureProof processes your actual CV — analysing your specific responsibilities, seniority level, industry sub-sector, and geographic market through a structured intelligence methodology. The output is a bespoke strategic document tailored to you. No free tool does this.</p>
     </div>
     <div class="faq-item">
       <h4>How long does the process take?</h4>
@@ -1042,8 +1101,8 @@ footer{
   <h2 class="section-title">Order Your Report.<br>Start Knowing.</h2>
   <div class="contact-layout">
     <div class="contact-info">
-      <p style="font-size:1rem;line-height:1.75;color:#b0a898;max-width:420px;margin-bottom:1rem;">
-        Fill in the form and we'll confirm your order, send a payment link, and follow up with the intake questionnaire. Your report will be underway within 24 hours of CV submission.
+      <p style="font-size:1rem;line-height:1.75;color:#aaa;max-width:420px;margin-bottom:1rem;">
+        Fill in the form and we'll confirm your order and send a payment link. Once your CV is submitted, your report will be generated and delivered within the timeframe for your chosen tier.
       </p>
       <div class="contact-item">
         <div class="contact-icon">✉️</div>
@@ -1110,8 +1169,8 @@ footer{
           <label>Anything you'd like us to know?</label>
           <textarea placeholder="Your role, years of experience, specific concerns, or questions..."></textarea>
         </div>
-        <a href="mailto:hello@futureproof.report" class="btn btn-gold">Send My Order Request →</a>
-        <p style="font-size:0.75rem;color:#5a5040;margin-top:0.5rem;">We'll reply within 24 hours with your payment link and next steps.</p>
+        <a href="/cdn-cgi/l/email-protection#28404d444447684e5d5c5d5a4d585a47474e065a4d58475a5c" class="btn btn-gold">Send My Order Request →</a>
+        <p style="font-size:0.75rem;color:#344258;margin-top:0.5rem;">We'll reply within 24 hours with your payment link and next steps.</p>
       </div>
     </div>
   </div>
@@ -1128,7 +1187,28 @@ footer{
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+
+function openMenu(){
+  hamburger.classList.add('open');
+  mobileMenu.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeMenu(){
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow='';
+}
+hamburger.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+document.querySelectorAll('.mobile-link').forEach(link=>{
+  link.addEventListener('click', closeMenu);
+});
+
 // Animate on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1139,13 +1219,4 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.what-card, .score-card, .highlight-box, .process-step, .price-card, .cred-card, .faq-item').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
-});
-</script>
-
-</body>
-</html>
+document.querySelectorAll(
