@@ -569,7 +569,7 @@ footer{
 .delay-3{animation-delay:0.4s;}
 .delay-4{animation-delay:0.55s;}
 
-.bar-fill{height:100%;border-radius:10px;width:0%;transition:width 1.4s cubic-bezier(0.4,0,0.2,1);}
+
 
 /* responsive */
 @media(max-width:900px){
@@ -656,7 +656,7 @@ footer{
         <span class="danger">67 / 100</span>
       </div>
       <div class="bar-track">
-        <div class="bar-fill bar-danger" style="--w:67%"></div>
+        <div class="bar-fill bar-danger" data-w="67"></div>
       </div>
       <div class="score-note">⚠ High task-erosion risk within 24 months — action recommended now</div>
     </div>
@@ -667,7 +667,7 @@ footer{
         <span class="safe">82 / 100</span>
       </div>
       <div class="bar-track">
-        <div class="bar-fill bar-safe" style="--w:82%"></div>
+        <div class="bar-fill bar-safe" data-w="82"></div>
       </div>
       <div class="score-note">✓ Strong pivot potential — 3 high-leverage transition paths identified</div>
     </div>
@@ -1208,9 +1208,8 @@ footer{
   /* PROGRESS BARS */
   function fillBars(){
     document.querySelectorAll('.bar-fill').forEach(function(bar){
-      var s = bar.getAttribute('style') || '';
-      var m = s.match(/--w:\s*(\d+%)/);
-      if(m){ bar.style.width = m[1]; }
+      var w = bar.getAttribute('data-w');
+      if(w){ bar.style.width = w + '%'; }
     });
   }
   setTimeout(fillBars, 400);
