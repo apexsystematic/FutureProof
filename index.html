@@ -646,7 +646,7 @@ footer{
   </div>
 
   <!-- Score preview card -->
-  <div class="hero-card animate delay-3">
+  <div class="hero-card">
     <div class="card-title">Principal Market Access Consultant</div>
     <div class="card-sub">Pharmaceutical · 12 years experience · Director level</div>
 
@@ -1212,8 +1212,8 @@ footer{
       if(w){ bar.style.width = w + '%'; }
     });
   }
-  setTimeout(fillBars, 400);
-  window.addEventListener('load', function(){ setTimeout(fillBars, 600); });
+  /* Fire after page fully painted — 1.2s covers any CSS animations */
+  setTimeout(fillBars, 1200);
 
   /* SCROLL ANIMATIONS */
   function initAnims(){
