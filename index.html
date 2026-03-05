@@ -65,15 +65,15 @@ nav{
 
 /* Mobile drawer */
 .mobile-menu{
-  display:none;
   position:fixed;top:0;left:0;right:0;bottom:0;
   background:var(--dark);z-index:250;
   flex-direction:column;align-items:center;justify-content:center;
-  gap:2.5rem;opacity:0;
-  transition:opacity 0.3s ease;
+  gap:2.5rem;
+  opacity:0;visibility:hidden;
+  transition:opacity 0.3s ease, visibility 0.3s ease;
   pointer-events:none;
 }
-.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu.open{opacity:1;visibility:visible;pointer-events:all;}
 .mobile-menu a{
   font-family:'Playfair Display',serif;
   font-size:2rem;font-weight:700;color:#fff;
@@ -573,8 +573,7 @@ footer{
 .delay-3{animation-delay:0.4s;}
 .delay-4{animation-delay:0.55s;}
 
-@keyframes fillBar{from{width:0%;}to{width:var(--w);}}
-.bar-fill{animation:fillBar 1.8s cubic-bezier(0.4,0,0.2,1) 0.5s forwards;width:0%;}
+.bar-fill{width:0%;transition:width 1.6s cubic-bezier(0.4,0,0.2,1);}
 
 /* responsive */
 @media(max-width:900px){
@@ -590,7 +589,6 @@ footer{
   /* Show hamburger, hide desktop links */
   .hamburger{display:flex;}
   .nav-links{display:none;}
-  .mobile-menu{display:flex;}
 }
 </style>
 </head>
@@ -604,7 +602,7 @@ footer{
     <a href="#scoring">Scoring</a>
     <a href="#sample">Sample Report</a>
     <a href="#pricing">Pricing</a>
-    <a href="#contact" class="btn btn-gold btn-sm">Get My Report</a>
+    <a href="#contact" class="btn btn-gold btn-sm" style="color:#fff;">Get My Report</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -624,7 +622,7 @@ footer{
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow animate delay-1">Career Intelligence · Est. 2025</div>
+    <div class="hero-eyebrow animate delay-1">Career Intelligence</div>
     <h1 class="animate delay-2">Will AI Take<br><em>Your Job?</em><br>Find Out First.</h1>
     <p class="hero-sub animate delay-3">
       FutureProof delivers a deep, personalised professional intelligence report — 
@@ -718,7 +716,7 @@ footer{
     </div>
     <div class="what-card">
       <div class="what-icon">⏱️</div>
-      <h3>Disruption Timeline (2025–2030)</h3>
+      <h3>Disruption Timeline (2026–2030)</h3>
       <p>A personalised horizon map showing when each threat is likely to materialise — short-term, mid-term, and structural — so you can plan with precision, not panic.</p>
     </div>
     <div class="what-card">
@@ -816,7 +814,7 @@ footer{
       </div>
       <div class="toc-item">
         <span class="toc-num">4</span>
-        <span class="toc-text">Disruption Timeline: Your 2025–2030 Horizon Map</span>
+        <span class="toc-text">Disruption Timeline: Your 2026–2030 Horizon Map</span>
       </div>
       <div class="toc-item">
         <span class="toc-num">5</span>
@@ -876,7 +874,7 @@ footer{
     <div class="process-step">
       <div class="step-circle">4</div>
       <h4>Receive & Act</h4>
-      <p>Your report arrives as a polished PDF. Premium clients also receive a 30-minute strategy call to walk through findings.</p>
+      <p>Your report arrives as a polished PDF. Executive clients receive priority delivery, a detailed competitor benchmarking section, and a revision round.</p>
     </div>
   </div>
 </section>
@@ -901,7 +899,6 @@ footer{
         <li><span class="check">✓</span>Top 5 most exposed tasks in your role</li>
         <li><span class="check">✓</span>2-year disruption outlook summary</li>
         <li><span class="check">✓</span>3 recommended upskilling resources</li>
-        <li><span class="check">✓</span>8–10 page report · PDF format</li>
       </ul>
       <a href="#contact" class="btn btn-outline" style="display:block;text-align:center;">Order The Snapshot</a>
     </div>
@@ -917,11 +914,10 @@ footer{
       <ul class="price-features">
         <li><span class="check">✓</span>Everything in The Snapshot</li>
         <li><span class="check">✓</span>Full task-by-task vulnerability table</li>
-        <li><span class="check">✓</span>2025–2030 personalised timeline map</li>
+        <li><span class="check">✓</span>2026–2030 personalised timeline map</li>
         <li><span class="check">✓</span>3 detailed pivot pathway profiles</li>
         <li><span class="check">✓</span>Curated upskilling roadmap with costs</li>
         <li><span class="check">✓</span>90-day action plan</li>
-        <li><span class="check">✓</span>15–25 page full report · PDF format</li>
       </ul>
       <a href="#contact" class="btn btn-gold" style="display:block;text-align:center;">Order The Intelligence Report</a>
     </div>
@@ -935,12 +931,11 @@ footer{
       <div class="price-desc">For senior leaders and high-stakes decisions. Includes everything in the Intelligence Report plus a live strategy session.</div>
       <ul class="price-features">
         <li><span class="check">✓</span>Everything in The FutureProof Intelligence Report</li>
-        <li><span class="check">✓</span>30-min 1-on-1 strategy call</li>
+        <li><span class="check">✓</span>Priority 48-hour delivery</li>
         <li><span class="check">✓</span>Organisational risk note (for HR leaders)</li>
         <li><span class="check">✓</span>Industry peer benchmarking section</li>
         <li><span class="check">✓</span>Revision round within 14 days</li>
         <li><span class="check">✓</span>Priority email support for 30 days</li>
-        <li><span class="check">✓</span>25–35 page report · PDF format</li>
       </ul>
       <a href="#contact" class="btn btn-outline" style="display:block;text-align:center;">Order The Executive Brief</a>
     </div>
@@ -970,7 +965,7 @@ footer{
           <td class="comp-us">FutureProof™</td>
           <td>€149–€599 <span class="comp-badge badge-us">Paid</span></td>
           <td>✅ Fully — CV + questionnaire</td>
-          <td>15–35 page PDF + strategy call</td>
+          <td>Full report PDF + premium add-ons</td>
           <td>✅ 3 detailed pathways</td>
           <td>✅ Expert-calibrated</td>
         </tr>
@@ -1207,6 +1202,17 @@ hamburger.addEventListener('click', openMenu);
 mobileClose.addEventListener('click', closeMenu);
 document.querySelectorAll('.mobile-link').forEach(link=>{
   link.addEventListener('click', closeMenu);
+});
+
+// Trigger progress bars
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+      const style = bar.getAttribute('style') || '';
+      const match = style.match(/--w:\s*([\d.]+%)/);
+      if (match) bar.style.width = match[1];
+    });
+  }, 400);
 });
 
 // Animate on scroll
