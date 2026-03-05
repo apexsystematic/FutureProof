@@ -65,15 +65,20 @@ nav{
 
 /* Mobile drawer */
 .mobile-menu{
+  display:none;
   position:fixed;top:0;left:0;right:0;bottom:0;
   background:var(--dark);z-index:250;
   flex-direction:column;align-items:center;justify-content:center;
   gap:2.5rem;
-  opacity:0;visibility:hidden;
-  transition:opacity 0.3s ease, visibility 0.3s ease;
+  opacity:0;
+  transition:opacity 0.35s ease;
   pointer-events:none;
 }
-.mobile-menu.open{opacity:1;visibility:visible;pointer-events:all;}
+.mobile-menu.open{
+  display:flex;
+  opacity:1;
+  pointer-events:all;
+}
 .mobile-menu a{
   font-family:'Playfair Display',serif;
   font-size:2rem;font-weight:700;color:#fff;
@@ -931,7 +936,7 @@ footer{
       <div class="price-desc">For senior leaders and high-stakes decisions. Includes everything in the Intelligence Report plus a live strategy session.</div>
       <ul class="price-features">
         <li><span class="check">✓</span>Everything in The FutureProof Intelligence Report</li>
-        <li><span class="check">✓</span>Priority 48-hour delivery</li>
+        <li><span class="check">✓</span>Queue priority — your report is processed first</li>
         <li><span class="check">✓</span>Organisational risk note (for HR leaders)</li>
         <li><span class="check">✓</span>Industry peer benchmarking section</li>
         <li><span class="check">✓</span>Revision round within 14 days</li>
@@ -1190,13 +1195,17 @@ const mobileClose = document.getElementById('mobileClose');
 
 function openMenu(){
   hamburger.classList.add('open');
-  mobileMenu.classList.add('open');
-  document.body.style.overflow='hidden';
+  mobileMenu.style.display = 'flex';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => { mobileMenu.style.opacity = '1'; });
+  });
+  document.body.style.overflow = 'hidden';
 }
 function closeMenu(){
   hamburger.classList.remove('open');
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow='';
+  mobileMenu.style.opacity = '0';
+  setTimeout(() => { mobileMenu.style.display = 'none'; }, 350);
+  document.body.style.overflow = '';
 }
 hamburger.addEventListener('click', openMenu);
 mobileClose.addEventListener('click', closeMenu);
@@ -1204,15 +1213,21 @@ document.querySelectorAll('.mobile-link').forEach(link=>{
   link.addEventListener('click', closeMenu);
 });
 
-// Trigger progress bars
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.querySelectorAll('.bar-fill').forEach(bar => {
-      const style = bar.getAttribute('style') || '';
-      const match = style.match(/--w:\s*([\d.]+%)/);
-      if (match) bar.style.width = match[1];
-    });
-  }, 400);
+// Trigger progress bars via IntersectionObserver
+function fillBars(container){
+  container.querySelectorAll('.bar-fill').forEach(bar => {
+    const style = bar.getAttribute('style') || '';
+    const match = style.match(/--w:\s*([\d.]+%)/);
+    if (match) { bar.style.transition = 'width 1.5s cubic-bezier(0.4,0,0.2,1)'; bar.style.width = match[1]; }
+  });
+}
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ fillBars(e.target); barObserver.unobserve(e.target); } });
+}, { threshold: 0.3 });
+document.querySelectorAll('.hero-card, .score-row').forEach(el => barObserver.observe(el));
+// Also fire on load as fallback
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => fillBars(document), 800);
 });
 
 // Animate on scroll
