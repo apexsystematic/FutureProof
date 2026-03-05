@@ -186,9 +186,17 @@ nav{
 .bar-track{
   height:10px;background:#ece8e0;border-radius:10px;overflow:hidden;
 }
-.bar-fill{height:100%;border-radius:10px;width:0%;transition:width 1.4s cubic-bezier(0.4,0,0.2,1);}
-.bar-danger{background:linear-gradient(90deg,var(--warn),var(--danger));}
-.bar-safe{background:linear-gradient(90deg,#4caf88,var(--safe));}
+@keyframes fillDanger{from{width:0%;}to{width:67%;}}
+@keyframes fillSafe{from{width:0%;}to{width:82%;}}
+.bar-fill{height:100%;border-radius:10px;width:0%;}
+.bar-danger{
+  background:linear-gradient(90deg,var(--warn),var(--danger));
+  animation:fillDanger 1.4s cubic-bezier(0.4,0,0.2,1) 0.8s forwards;
+}
+.bar-safe{
+  background:linear-gradient(90deg,#4caf88,var(--safe));
+  animation:fillSafe 1.4s cubic-bezier(0.4,0,0.2,1) 1.0s forwards;
+}
 .score-note{font-size:0.73rem;color:#888;margin-top:0.4rem;}
 
 .divider-sm{height:1px;background:var(--subtle);margin:1.5rem 0;}
@@ -1204,16 +1212,6 @@ footer{
   if(btn)    btn.addEventListener('click',    openNav);
   if(closer) closer.addEventListener('click', closeNav);
   document.querySelectorAll('.mobile-link').forEach(function(l){ l.addEventListener('click', closeNav); });
-
-  /* PROGRESS BARS */
-  function fillBars(){
-    document.querySelectorAll('.bar-fill').forEach(function(bar){
-      var w = bar.getAttribute('data-w');
-      if(w){ bar.style.width = w + '%'; }
-    });
-  }
-  /* Fire after page fully painted — 1.2s covers any CSS animations */
-  setTimeout(fillBars, 1200);
 
   /* SCROLL ANIMATIONS */
   function initAnims(){
