@@ -52,7 +52,7 @@ nav{
 .hamburger{
   display:none;flex-direction:column;justify-content:center;gap:5px;
   width:2.2rem;height:2.2rem;cursor:pointer;
-  background:none;border:none;padding:0.2rem;z-index:300;
+  background:none;border:none;padding:0.2rem;z-index:10000;
 }
 .hamburger span{
   display:block;height:2px;width:100%;
@@ -67,17 +67,11 @@ nav{
 .mobile-menu{
   display:none;
   position:fixed;top:0;left:0;right:0;bottom:0;
-  background:var(--dark);z-index:250;
+  background:var(--dark);z-index:9999;
   flex-direction:column;align-items:center;justify-content:center;
   gap:2.5rem;
   opacity:0;
-  transition:opacity 0.35s ease;
-  pointer-events:none;
-}
-.mobile-menu.open{
-  display:flex;
-  opacity:1;
-  pointer-events:all;
+  transition:opacity 0.3s ease;
 }
 .mobile-menu a{
   font-family:'Playfair Display',serif;
@@ -192,10 +186,7 @@ nav{
 .bar-track{
   height:10px;background:#ece8e0;border-radius:10px;overflow:hidden;
 }
-.bar-fill{
-  height:100%;border-radius:10px;
-  transition:width 1.5s cubic-bezier(0.4,0,0.2,1);
-}
+.bar-fill{height:100%;border-radius:10px;width:0%;transition:width 1.4s cubic-bezier(0.4,0,0.2,1);}
 .bar-danger{background:linear-gradient(90deg,var(--warn),var(--danger));}
 .bar-safe{background:linear-gradient(90deg,#4caf88,var(--safe));}
 .score-note{font-size:0.73rem;color:#888;margin-top:0.4rem;}
@@ -578,7 +569,7 @@ footer{
 .delay-3{animation-delay:0.4s;}
 .delay-4{animation-delay:0.55s;}
 
-.bar-fill{width:0%;transition:width 1.6s cubic-bezier(0.4,0,0.2,1);}
+.bar-fill{height:100%;border-radius:10px;width:0%;transition:width 1.4s cubic-bezier(0.4,0,0.2,1);}
 
 /* responsive */
 @media(max-width:900px){
@@ -701,7 +692,7 @@ footer{
   <div class="section-label">What You Receive</div>
   <h2 class="section-title">Not a Quiz. Not a Guess.<br>A Real Professional Report.</h2>
   <p class="section-sub">
-    Every FutureProof report is a thoroughly researched, 15–25 page intelligence document — built around your actual CV, role, industry, seniority, and geography. Precision inputs. Expert-calibrated outputs.
+    Every FutureProof report is a thoroughly researched, bespoke intelligence document — built around your actual CV, role, industry, seniority, and geography. Precision inputs. Expert-calibrated outputs.
   </p>
   <div class="what-grid">
     <div class="what-card">
@@ -1187,57 +1178,75 @@ footer{
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Hamburger menu
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-const mobileClose = document.getElementById('mobileClose');
+<script>
+(function(){
 
-function openMenu(){
-  hamburger.classList.add('open');
-  mobileMenu.style.display = 'flex';
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => { mobileMenu.style.opacity = '1'; });
-  });
-  document.body.style.overflow = 'hidden';
-}
-function closeMenu(){
-  hamburger.classList.remove('open');
-  mobileMenu.style.opacity = '0';
-  setTimeout(() => { mobileMenu.style.display = 'none'; }, 350);
-  document.body.style.overflow = '';
-}
-hamburger.addEventListener('click', openMenu);
-mobileClose.addEventListener('click', closeMenu);
-document.querySelectorAll('.mobile-link').forEach(link=>{
-  link.addEventListener('click', closeMenu);
-});
+  /* BURGER MENU */
+  var btn    = document.getElementById('hamburger');
+  var menu   = document.getElementById('mobileMenu');
+  var closer = document.getElementById('mobileClose');
 
-// Trigger progress bars via IntersectionObserver
-function fillBars(container){
-  container.querySelectorAll('.bar-fill').forEach(bar => {
-    const style = bar.getAttribute('style') || '';
-    const match = style.match(/--w:\s*([\d.]+%)/);
-    if (match) { bar.style.transition = 'width 1.5s cubic-bezier(0.4,0,0.2,1)'; bar.style.width = match[1]; }
-  });
-}
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting){ fillBars(e.target); barObserver.unobserve(e.target); } });
-}, { threshold: 0.3 });
-document.querySelectorAll('.hero-card, .score-row').forEach(el => barObserver.observe(el));
-// Also fire on load as fallback
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => fillBars(document), 800);
-});
+  function openNav(){
+    if(!menu) return;
+    menu.style.display  = 'flex';
+    menu.style.opacity  = '1';
+    if(btn) btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav(){
+    if(!menu) return;
+    menu.style.opacity = '0';
+    if(btn) btn.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function(){ menu.style.display = 'none'; }, 300);
+  }
 
-// Animate on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
+  if(btn)    btn.addEventListener('click',    openNav);
+  if(closer) closer.addEventListener('click', closeNav);
+  document.querySelectorAll('.mobile-link').forEach(function(l){ l.addEventListener('click', closeNav); });
+
+  /* PROGRESS BARS */
+  function fillBars(){
+    document.querySelectorAll('.bar-fill').forEach(function(bar){
+      var s = bar.getAttribute('style') || '';
+      var m = s.match(/--w:\s*(\d+%)/);
+      if(m){ bar.style.width = m[1]; }
+    });
+  }
+  setTimeout(fillBars, 400);
+  window.addEventListener('load', function(){ setTimeout(fillBars, 600); });
+
+  /* SCROLL ANIMATIONS */
+  function initAnims(){
+    var sel = '.what-card,.score-card,.highlight-box,.process-step,.price-card,.cred-card,.faq-item';
+    var els = document.querySelectorAll(sel);
+    if(!window.IntersectionObserver){
+      els.forEach(function(el){ el.style.opacity='1'; el.style.transform='none'; });
+      return;
     }
-  });
-}, { threshold: 0.1 });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.style.opacity='1';
+          e.target.style.transform='translateY(0)';
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:0.1});
+    els.forEach(function(el){
+      el.style.opacity='0';
+      el.style.transform='translateY(20px)';
+      el.style.transition='opacity 0.6s ease, transform 0.6s ease';
+      io.observe(el);
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initAnims);
+  } else {
+    initAnims();
+  }
 
-document.querySelectorAll(
+})();
+</script>
+</body>
+</html>
