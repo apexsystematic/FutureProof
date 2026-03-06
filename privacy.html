@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — FutureProof</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:       #1a1a1a;
+  --white:     #ffffff;
+  --off:       #f9f8f6;
+  --gold:      #b8963e;
+  --gold-lt:   #d4ae5e;
+  --gold-pale: #f5edd8;
+  --muted:     #787168;
+  --subtle:    #e8e4dc;
+  --dark:      #111111;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 5%;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--subtle);
+}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;}
+.nav-logo em{font-style:italic;color:var(--gold);}
+.nav-back{font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:#888;transition:color 0.2s;display:flex;align-items:center;gap:0.4rem;}
+.nav-back:hover{color:var(--gold);}
+.page-header{padding:9rem 5% 4rem;background:var(--off);border-bottom:1px solid var(--subtle);}
+.page-header-inner{max-width:800px;}
+.page-label{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block;}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;}
+.page-header p{font-size:0.92rem;color:var(--muted);line-height:1.7;}
+.tos-body{max-width:800px;margin:0 auto;padding:4rem 5% 6rem;}
+.tos-section{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--subtle);}
+.tos-section:last-child{border-bottom:none;margin-bottom:0;}
+.tos-section h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:1rem;color:var(--ink);display:flex;align-items:baseline;gap:0.8rem;}
+.tos-num{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+.tos-section p{font-size:0.92rem;line-height:1.8;color:#444;margin-bottom:0.9rem;}
+.tos-section p:last-child{margin-bottom:0;}
+.tos-section ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0.8rem 0 1rem;}
+.tos-section ul li{font-size:0.92rem;line-height:1.7;color:#444;padding-left:1.2rem;position:relative;}
+.tos-section ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-weight:600;}
+.highlight-note{background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;padding:1.2rem 1.5rem;margin:1.2rem 0;font-size:0.88rem;line-height:1.7;color:#5a4010;}
+.highlight-note strong{display:block;margin-bottom:0.3rem;color:#3a2800;}
+.entity-box{background:var(--off);border:1px solid var(--subtle);border-radius:3px;padding:1.5rem;margin:1.2rem 0;font-size:0.88rem;line-height:1.8;color:#444;}
+.entity-box strong{color:var(--ink);}
+.rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0;}
+.right-card{background:var(--off);border:1px solid var(--subtle);border-radius:3px;padding:1.2rem;}
+.right-card h4{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;margin-bottom:0.4rem;color:var(--ink);}
+.right-card p{font-size:0.82rem;line-height:1.6;color:#666;margin:0;}
+footer{background:#0d0d0d;padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:#fff;}
+.footer-logo em{font-style:italic;color:var(--gold);}
+.footer-copy{font-size:0.78rem;color:#555;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.78rem;color:#555;text-decoration:none;}
+.footer-links a:hover{color:var(--gold);}
+@media(max-width:700px){
+  footer{flex-direction:column;gap:1rem;text-align:center;}
+  .tos-body{padding:3rem 5% 4rem;}
+  .rights-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Future<em>Proof</em></a>
+  <a class="nav-back" href="index.html">← Back to site</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="page-label">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: March 2026 &nbsp;·&nbsp; Applies to all clients worldwide</p>
+  </div>
+</div>
+
+<div class="tos-body">
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 1</span> Who We Are</h2>
+    <p>FutureProof is a digital intelligence service operated by an individual registered as <em>Autónomo</em> under Spanish law. We are based in Spain and our processing activities are subject to the General Data Protection Regulation (GDPR) (EU) 2016/679 and Spanish data protection law (LOPDGDD).</p>
+    <div class="entity-box">
+      <strong>Data Controller</strong><br>
+      FutureProof<br>
+      Registered as: Autónomo — Spain<br>
+      Contact: <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a>
+    </div>
+    <p>Regardless of where you are located, we apply GDPR-equivalent standards of data protection to all clients globally. By using our service, you acknowledge that your data will be processed in Spain.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 2</span> What Data We Collect</h2>
+    <p>We collect only the data necessary to deliver your report. We do not collect data for marketing, profiling, or any purpose beyond fulfilling your order.</p>
+    <ul>
+      <li><strong>Contact information</strong> — your name and email address, provided when you submit the order form</li>
+      <li><strong>CV / Résumé</strong> — the professional document you submit as part of the intake process. This is the primary input used to generate your report</li>
+      <li><strong>Intake questionnaire responses</strong> — your answers about your role, industry, goals, and career context</li>
+      <li><strong>Payment information</strong> — handled entirely by our third-party payment processor. We never see or store your card details</li>
+      <li><strong>Communication records</strong> — emails exchanged between you and FutureProof regarding your order</li>
+    </ul>
+    <p>We do not use tracking pixels, behavioural analytics tools, or any form of automated profiling beyond what is needed to generate your report.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 3</span> Why We Collect It — Legal Basis</h2>
+    <p>Every piece of data we collect has a specific purpose and a lawful basis under GDPR:</p>
+    <ul>
+      <li><strong>Contract performance (Art. 6(1)(b) GDPR)</strong> — your name, email, CV, and questionnaire responses are processed to fulfil your order and deliver your report. Without this data, we cannot provide the service.</li>
+      <li><strong>Legal obligation (Art. 6(1)(c) GDPR)</strong> — we may retain certain transaction records to comply with Spanish tax law and accounting obligations (Agencia Tributaria requirements).</li>
+      <li><strong>Legitimate interests (Art. 6(1)(f) GDPR)</strong> — we retain email correspondence for a reasonable period to handle disputes, refund requests, or revision requests related to your order.</li>
+    </ul>
+    <p>We do not process your data based on consent or for direct marketing. We will never send you unsolicited marketing emails.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 4</span> How Long We Keep Your Data</h2>
+    <ul>
+      <li><strong>CV and questionnaire data</strong> — deleted within 30 days of your report being delivered</li>
+      <li><strong>Email address and name</strong> — retained for up to 12 months after order completion to handle any follow-up queries, revisions, or disputes, then deleted</li>
+      <li><strong>Transaction records</strong> — retained for 5 years in accordance with Spanish accounting and tax law (Ley General Tributaria)</li>
+      <li><strong>Email correspondence</strong> — retained for 12 months after the last interaction, then deleted</li>
+    </ul>
+    <div class="highlight-note">
+      <strong>Your CV is not stored beyond 30 days</strong>
+      We do not build a database of client CVs. Your CV is used solely to produce your report and is permanently deleted within 30 days of delivery. We do not use your CV to train AI models or for any purpose other than fulfilling your order.
+    </div>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 5</span> Who We Share Your Data With</h2>
+    <p>We do not sell, rent, or trade your personal data. We share data only where strictly necessary to deliver the service:</p>
+    <ul>
+      <li><strong>Payment processors</strong> — your payment is handled by a third-party processor (e.g. Stripe or equivalent). They receive your billing details but not your CV or report content. They operate under their own privacy policies and are GDPR-compliant.</li>
+      <li><strong>Email service providers</strong> — we use a third-party email platform to send you your report and order communications. Your email address is shared with this provider solely for this purpose.</li>
+      <li><strong>AI infrastructure providers</strong> — your CV and questionnaire data is processed through AI systems to generate your report. These providers are bound by data processing agreements and may not use your data for any other purpose.</li>
+    </ul>
+    <p>We do not share your data with advertisers, data brokers, recruitment agencies, or any third party for commercial purposes.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 6</span> International Data Transfers</h2>
+    <p>FutureProof is based in Spain (EU). Your data is processed within the EU wherever possible. Where we use third-party service providers (such as AI infrastructure or payment processors) that operate outside the EU/EEA, we ensure appropriate safeguards are in place, including:</p>
+    <ul>
+      <li>Standard Contractual Clauses (SCCs) approved by the European Commission</li>
+      <li>Adequacy decisions where applicable (e.g. transfers to countries recognised as providing adequate data protection)</li>
+      <li>Binding corporate rules or equivalent mechanisms where SCCs are not available</li>
+    </ul>
+    <p>If you are located outside the EU, by submitting your order you consent to your data being processed in Spain and, where necessary, transferred to third-party processors who are contractually bound to protect it to GDPR standards.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 7</span> Your Rights</h2>
+    <p>Depending on your location, you have specific rights regarding your personal data. We honour all of the following for all clients globally, regardless of where you are based:</p>
+    <div class="rights-grid">
+      <div class="right-card">
+        <h4>Right of Access</h4>
+        <p>Request a copy of all personal data we hold about you.</p>
+      </div>
+      <div class="right-card">
+        <h4>Right to Rectification</h4>
+        <p>Ask us to correct any inaccurate data we hold.</p>
+      </div>
+      <div class="right-card">
+        <h4>Right to Erasure</h4>
+        <p>Request deletion of your data, subject to legal retention requirements.</p>
+      </div>
+      <div class="right-card">
+        <h4>Right to Restriction</h4>
+        <p>Ask us to limit how we use your data in certain circumstances.</p>
+      </div>
+      <div class="right-card">
+        <h4>Right to Portability</h4>
+        <p>Receive your data in a structured, machine-readable format.</p>
+      </div>
+      <div class="right-card">
+        <h4>Right to Object</h4>
+        <p>Object to processing based on legitimate interests.</p>
+      </div>
+    </div>
+    <p>To exercise any of these rights, contact us at <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a>. We will respond within 30 days. We will never charge a fee for a reasonable data request.</p>
+    <p>If you are an EU/EEA resident and believe we have handled your data unlawfully, you have the right to lodge a complaint with your national supervisory authority. In Spain, this is the <strong>Agencia Española de Protección de Datos (AEPD)</strong> at <a href="https://www.aepd.es" target="_blank" style="color:var(--gold);">aepd.es</a>.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 8</span> Security</h2>
+    <p>We take reasonable technical and organisational measures to protect your personal data from unauthorised access, loss, or disclosure. These include:</p>
+    <ul>
+      <li>Encrypted email communications where supported</li>
+      <li>Access to your data limited strictly to those involved in fulfilling your order</li>
+      <li>Secure deletion of CV data within 30 days of delivery</li>
+      <li>Use of reputable, GDPR-compliant third-party processors only</li>
+    </ul>
+    <p>No method of transmission over the internet is 100% secure. In the event of a data breach that poses a risk to your rights, we will notify you and the relevant supervisory authority as required by GDPR within 72 hours of becoming aware of it.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 9</span> Cookies</h2>
+    <p>Our website uses a limited number of cookies. Please refer to our <a href="cookies.html" style="color:var(--gold);">Cookie Policy</a> for full details of what cookies we use, why, and how to manage them.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 10</span> Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. When we do, we will update the "Last updated" date at the top of this page. We encourage you to review this page periodically. Continued use of our service after any update constitutes acceptance of the revised policy.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 11</span> Contact & Complaints</h2>
+    <div class="entity-box">
+      <strong>Data Controller — FutureProof</strong><br>
+      Email: <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a><br>
+      Response time: within 30 days for data requests, within 2 business days for general enquiries<br><br>
+      <strong>Spanish Supervisory Authority</strong><br>
+      Agencia Española de Protección de Datos (AEPD)<br>
+      <a href="https://www.aepd.es" target="_blank" style="color:var(--gold);">www.aepd.es</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Future<em>Proof</em></div>
+  <div class="footer-copy">© 2026 FutureProof. All rights reserved.</div>
+    <div class="footer-links">
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="aviso-legal.html">Aviso Legal</a>
+  </div>
+</footer>
+
+</body>
+</html>

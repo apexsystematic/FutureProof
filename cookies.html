@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cookie Policy — FutureProof</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:       #1a1a1a;
+  --white:     #ffffff;
+  --off:       #f9f8f6;
+  --gold:      #b8963e;
+  --gold-lt:   #d4ae5e;
+  --gold-pale: #f5edd8;
+  --muted:     #787168;
+  --subtle:    #e8e4dc;
+  --dark:      #111111;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5%;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--subtle);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;}
+.nav-logo em{font-style:italic;color:var(--gold);}
+.nav-back{font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:#888;transition:color 0.2s;}
+.nav-back:hover{color:var(--gold);}
+.page-header{padding:9rem 5% 4rem;background:var(--off);border-bottom:1px solid var(--subtle);}
+.page-header-inner{max-width:800px;}
+.page-label{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block;}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;}
+.page-header p{font-size:0.92rem;color:var(--muted);line-height:1.7;}
+.tos-body{max-width:800px;margin:0 auto;padding:4rem 5% 6rem;}
+.tos-section{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--subtle);}
+.tos-section:last-child{border-bottom:none;margin-bottom:0;}
+.tos-section h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:1rem;color:var(--ink);display:flex;align-items:baseline;gap:0.8rem;}
+.tos-num{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+.tos-section p{font-size:0.92rem;line-height:1.8;color:#444;margin-bottom:0.9rem;}
+.tos-section p:last-child{margin-bottom:0;}
+.tos-section ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0.8rem 0 1rem;}
+.tos-section ul li{font-size:0.92rem;line-height:1.7;color:#444;padding-left:1.2rem;position:relative;}
+.tos-section ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-weight:600;}
+.highlight-note{background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;padding:1.2rem 1.5rem;margin:1.2rem 0;font-size:0.88rem;line-height:1.7;color:#5a4010;}
+.highlight-note strong{display:block;margin-bottom:0.3rem;color:#3a2800;}
+.cookie-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.85rem;}
+.cookie-table th{background:var(--dark);color:var(--gold-lt);padding:0.8rem 1rem;text-align:left;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
+.cookie-table td{padding:0.85rem 1rem;border-bottom:1px solid var(--subtle);color:#444;line-height:1.5;vertical-align:top;}
+.cookie-table tr:last-child td{border-bottom:none;}
+.cookie-table tr:nth-child(even) td{background:var(--off);}
+.cookie-type{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.15rem 0.5rem;border-radius:2px;}
+.type-essential{background:#e8f5ee;color:#1e6e4a;}
+.type-functional{background:var(--gold-pale);color:#7a5510;}
+.type-analytics{background:#fcecea;color:#b03a2e;}
+footer{background:#0d0d0d;padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:#fff;}
+.footer-logo em{font-style:italic;color:var(--gold);}
+.footer-copy{font-size:0.78rem;color:#555;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.78rem;color:#555;text-decoration:none;}
+.footer-links a:hover{color:var(--gold);}
+@media(max-width:700px){footer{flex-direction:column;gap:1rem;text-align:center;}.tos-body{padding:3rem 5% 4rem;}.cookie-table{font-size:0.78rem;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Future<em>Proof</em></a>
+  <a class="nav-back" href="index.html">← Back to site</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="page-label">Legal</span>
+    <h1>Cookie Policy</h1>
+    <p>Last updated: March 2026 &nbsp;·&nbsp; Applies to all visitors worldwide</p>
+  </div>
+</div>
+
+<div class="tos-body">
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 1</span> What Are Cookies</h2>
+    <p>Cookies are small text files placed on your device when you visit a website. They are widely used to make websites work correctly, remember your preferences, and provide basic usage information to website operators.</p>
+    <p>This Cookie Policy explains exactly what cookies are used on <strong>www.futureproof.report</strong>, why, and how you can control them. We have deliberately kept our cookie usage to the absolute minimum necessary to operate the site.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 2</span> Cookies We Use</h2>
+    <p>FutureProof uses only the following cookies. We do not use advertising cookies, third-party tracking cookies, or any form of behavioural profiling.</p>
+
+    <table class="cookie-table">
+      <thead>
+        <tr>
+          <th>Cookie</th>
+          <th>Provider</th>
+          <th>Type</th>
+          <th>Purpose</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>__cf_bm</strong></td>
+          <td>Cloudflare</td>
+          <td><span class="cookie-type type-essential">Essential</span></td>
+          <td>Bot management and security. Distinguishes between humans and automated traffic to protect the site from abuse.</td>
+          <td>30 minutes</td>
+        </tr>
+        <tr>
+          <td><strong>_cfuvid</strong></td>
+          <td>Cloudflare</td>
+          <td><span class="cookie-type type-essential">Essential</span></td>
+          <td>Rate limiting — helps Cloudflare manage traffic fairly and protect server resources.</td>
+          <td>Session</td>
+        </tr>
+        <tr>
+          <td><strong>Google Fonts</strong></td>
+          <td>Google</td>
+          <td><span class="cookie-type type-functional">Functional</span></td>
+          <td>Our site loads fonts from Google Fonts. Google may set a cookie or log your IP address when fonts are requested. We do not control this. Google's privacy policy applies.</td>
+          <td>1 year</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-note">
+      <strong>No analytics, no advertising cookies</strong>
+      We do not currently use Google Analytics, Meta Pixel, LinkedIn Insight, or any other analytics or advertising tracking tool. If we introduce analytics in the future, we will update this policy and obtain your consent before setting any non-essential cookies.
+    </div>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 3</span> Essential vs Non-Essential Cookies</h2>
+    <p>Under the EU ePrivacy Directive (and its national implementations, including Spain's LSSI) and UK PECR, cookies are categorised as:</p>
+    <ul>
+      <li><strong>Essential cookies</strong> — strictly necessary for the website to function. These do not require your consent. The Cloudflare security cookies listed above fall into this category.</li>
+      <li><strong>Non-essential cookies</strong> — analytics, advertising, or preference cookies that are not strictly necessary. These require your prior consent. We currently use none of these.</li>
+    </ul>
+    <p>The Google Fonts cookie occupies a grey area — it is a functional dependency of the site's design, though not strictly essential to its operation. We are reviewing self-hosting our fonts to eliminate this entirely. Until then, it is disclosed here in full.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 4</span> How to Control Cookies</h2>
+    <p>Because we use only essential and minimal functional cookies, we do not operate a cookie consent banner — essential cookies are exempt from consent requirements under EU and UK law.</p>
+    <p>However, you can control cookies at the browser level at any time:</p>
+    <ul>
+      <li><strong>Chrome:</strong> Settings → Privacy and security → Cookies and other site data</li>
+      <li><strong>Safari:</strong> Preferences → Privacy → Manage Website Data</li>
+      <li><strong>Firefox:</strong> Settings → Privacy & Security → Cookies and Site Data</li>
+      <li><strong>Edge:</strong> Settings → Cookies and site permissions → Cookies and site data</li>
+    </ul>
+    <p>Please note that blocking essential cookies may affect the security and functionality of the site. Blocking Google Fonts cookies may cause fonts to fall back to your system default, which will affect the visual appearance of the site but not its functionality.</p>
+    <p>You can also opt out of Google's use of data by visiting <a href="https://policies.google.com/technologies/partner-sites" target="_blank" style="color:var(--gold);">Google's partner sites policy</a>.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 5</span> Third-Party Services</h2>
+    <p>When you submit an order form or make a payment, you will interact with third-party services (such as our payment processor) that operate under their own cookie and privacy policies. We have no control over cookies set by these third parties, and recommend you review their policies before proceeding.</p>
+    <p>Links to relevant third-party policies will be provided in your order confirmation email.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 6</span> Changes to This Policy</h2>
+    <p>If our cookie usage changes — for example, if we introduce analytics — we will update this page and, where required by law, implement a consent mechanism before setting any new non-essential cookies. We encourage you to check this page periodically.</p>
+  </div>
+
+  <div class="tos-section">
+    <h2><span class="tos-num">§ 7</span> Contact</h2>
+    <p>If you have any questions about our use of cookies, please contact us at <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a>. We will respond within 2 business days.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Future<em>Proof</em></div>
+  <div class="footer-copy">© 2026 FutureProof. All rights reserved.</div>
+    <div class="footer-links">
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="aviso-legal.html">Aviso Legal</a>
+  </div>
+</footer>
+
+</body>
+</html>
