@@ -21,15 +21,17 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.1rem 5%;
-  background:rgba(255,255,255,0.97);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--subtle);
+
+body {
+  font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden;
+  max-width: 1920px; margin: 0 auto; position: relative; box-shadow: 0 0 60px rgba(0,0,0,0.08);
 }
+nav {
+  position: fixed; top: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 5%; background: rgba(255,255,255,0.97); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--subtle); left: 50%; transform: translateX(-50%); width: 100%; max-width: 1920px;
+}
+
 .nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;}
 .nav-logo em{font-style:italic;color:var(--gold);}
 .nav-back{font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:#888;transition:color 0.2s;display:flex;align-items:center;gap:0.4rem;}
@@ -89,15 +91,16 @@ footer{background:#0d0d0d;padding:2rem 5%;display:flex;align-items:center;justif
 <div class="tos-body">
 
   <div class="tos-section">
-    <h2><span class="tos-num">§ 1</span> Who We Are</h2>
+    <h2><span class="tos-num">§ 1</span> Who We Are & Data Controller</h2>
     <p>FutureProof is a digital intelligence service operated by an individual registered as <em>Autónomo</em> under Spanish law. We are based in Spain and our processing activities are subject to the General Data Protection Regulation (GDPR) (EU) 2016/679 and Spanish data protection law (LOPDGDD).</p>
     <div class="entity-box">
       <strong>Data Controller</strong><br>
       FutureProof<br>
-      Registered as: Autónomo — Spain<br>
+      Operated by / Autónomo: [YOUR FULL LEGAL NAME]<br>
+      NIF/NIE: [YOUR NIF NUMBER]<br>
       Contact: <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a>
     </div>
-    <p>Regardless of where you are located, we apply GDPR-equivalent standards of data protection to all clients globally. By using our service, you acknowledge that your data will be processed in Spain.</p>
+    <p>Regardless of where you are located, we apply GDPR-equivalent standards of data protection to all clients globally. By using our service, you acknowledge that your data will be processed under these terms.</p>
   </div>
 
   <div class="tos-section">
@@ -151,13 +154,8 @@ footer{background:#0d0d0d;padding:2rem 5%;display:flex;align-items:center;justif
 
   <div class="tos-section">
     <h2><span class="tos-num">§ 6</span> International Data Transfers</h2>
-    <p>FutureProof is based in Spain (EU). Your data is processed within the EU wherever possible. Where we use third-party service providers (such as AI infrastructure or payment processors) that operate outside the EU/EEA, we ensure appropriate safeguards are in place, including:</p>
-    <ul>
-      <li>Standard Contractual Clauses (SCCs) approved by the European Commission</li>
-      <li>Adequacy decisions where applicable (e.g. transfers to countries recognised as providing adequate data protection)</li>
-      <li>Binding corporate rules or equivalent mechanisms where SCCs are not available</li>
-    </ul>
-    <p>If you are located outside the EU, by submitting your order you consent to your data being processed in Spain and, where necessary, transferred to third-party processors who are contractually bound to protect it to GDPR standards.</p>
+    <p>To analyze your career data and generate our intelligence reports, we utilize advanced third-party service providers (such as AI models, cloud hosting platforms, and payment processors). Some of these providers may process data on servers located outside the European Economic Area (EEA), primarily in the United States.</p>
+    <p>These international data transfers are strictly executed under the EU-US Data Privacy Framework, by utilizing Standard Contractual Clauses (SCCs) approved by the European Commission, or via Adequacy decisions, ensuring your data is treated with the rigorous protections mandated by the GDPR.</p>
   </div>
 
   <div class="tos-section">
@@ -219,6 +217,8 @@ footer{background:#0d0d0d;padding:2rem 5%;display:flex;align-items:center;justif
     <h2><span class="tos-num">§ 11</span> Contact & Complaints</h2>
     <div class="entity-box">
       <strong>Data Controller — FutureProof</strong><br>
+      Operated by: [YOUR FULL LEGAL NAME]<br>
+      NIF/NIE: [YOUR NIF NUMBER]<br>
       Email: <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a><br>
       Response time: within 30 days for data requests, within 2 business days for general enquiries<br><br>
       <strong>Spanish Supervisory Authority</strong><br>
@@ -232,11 +232,11 @@ footer{background:#0d0d0d;padding:2rem 5%;display:flex;align-items:center;justif
 <footer>
   <div class="footer-logo">Future<em>Proof</em></div>
   <div class="footer-copy">© 2026 FutureProof. All rights reserved.</div>
-    <div class="footer-links">
-    <a href="terms.html">Terms of Service</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="cookies.html">Cookies</a>
-    <a href="aviso-legal.html">Aviso Legal</a>
+  <div class="footer-links" style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-top:1rem;">
+    <a href="terms.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Terms of Service</a>
+    <a href="privacy.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Privacy Policy</a>
+    <a href="cookies.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Cookie Policy</a>
+    <a href="aviso-legal.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Aviso Legal</a>
   </div>
 </footer>
 
