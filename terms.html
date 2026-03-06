@@ -21,16 +21,20 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+body{
+  font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;
+  max-width: 1920px; margin: 0 auto; position: relative; box-shadow: 0 0 60px rgba(0,0,0,0.08);
+}
 
 /* ── NAV ── */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
+  position:fixed;top:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
   padding:1.1rem 5%;
   background:rgba(255,255,255,0.97);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--subtle);
+  left: 50%; transform: translateX(-50%); width: 100%; max-width: 1920px;
 }
 .nav-logo{
   font-family:'Playfair Display',serif;
@@ -161,13 +165,11 @@ footer{
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="index.html">Future<em>Proof</em></a>
-  <a class="nav-back" href="index.html">← Back to site</a>
+  <a class="nav-logo" href="index2.html">Future<em>Proof</em></a>
+  <a class="nav-back" href="index2.html">← Back to site</a>
 </nav>
 
-<!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
     <span class="page-label">Legal</span>
@@ -176,15 +178,15 @@ footer{
   </div>
 </div>
 
-<!-- BODY -->
 <div class="tos-body">
 
-  <!-- Identity -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 0</span> Service Provider</h2>
     <div class="entity-box">
       <strong>FutureProof</strong><br>
-      Operated by an individual registered as <em>Autónomo</em> under Spanish law<br>
+      Operated by: [YOUR FULL LEGAL NAME], registered as <em>Autónomo</em> under Spanish law<br>
+      NIF/NIE: [YOUR NIF NUMBER]<br>
+      Registered Address: [YOUR FULL SPANISH ADDRESS]<br>
       Tax jurisdiction: Spain (Agencia Tributaria)<br>
       VAT status: Subject to Spanish IVA regulations<br>
       Contact: <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a>
@@ -192,7 +194,6 @@ footer{
     <p>These Terms of Service ("Terms") govern all purchases and use of reports and services offered through FutureProof ("we", "us", "our"). By placing an order, you ("Client", "you") agree to be bound by these Terms in full.</p>
   </div>
 
-  <!-- Services -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 1</span> Nature of the Service</h2>
     <p>FutureProof provides AI-generated career intelligence reports ("Reports") that assess professional displacement risk and career pivot potential. Reports are produced by a purpose-built AI intelligence system trained on labour economics research, industry-specific AI adoption data, and occupational risk modelling.</p>
@@ -215,7 +216,6 @@ footer{
     <p>Pricing is subject to change without notice for future orders. Confirmed orders will always be fulfilled at the price agreed at time of purchase.</p>
   </div>
 
-  <!-- Order process -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 2</span> Ordering & Payment</h2>
     <p>Orders are placed by submitting the contact form on our website. A contract is formed when we send you written confirmation of your order and a payment link. Payment is required in full before work begins.</p>
@@ -223,7 +223,6 @@ footer{
     <p>Once payment is confirmed, you will receive instructions to submit your CV and complete the intake questionnaire. The delivery timeline begins only upon receipt of your complete profile submission.</p>
   </div>
 
-  <!-- Delivery -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 3</span> Delivery</h2>
     <p>Reports are delivered electronically as PDF documents to the email address provided at the time of order. Delivery timelines are measured in business days (Monday–Friday, excluding Spanish public holidays) from the date your complete profile submission is received.</p>
@@ -231,7 +230,6 @@ footer{
     <p>You are responsible for providing accurate and complete information. Incomplete, inaccurate, or misleading profile submissions may result in delays or reduced report quality, and do not entitle the Client to a refund.</p>
   </div>
 
-  <!-- Refunds -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 4</span> Refunds & Satisfaction Policy</h2>
     <p>Due to the bespoke, digital nature of our Reports, we operate the following policy:</p>
@@ -250,7 +248,6 @@ footer{
     </div>
   </div>
 
-  <!-- IP -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 5</span> Intellectual Property</h2>
     <p>Upon full payment and delivery, you are granted a non-exclusive, non-transferable licence to use your Report for personal, internal professional planning purposes only.</p>
@@ -264,7 +261,6 @@ footer{
     <p>All methodology, scoring systems (including the Displacement Risk Index™ and Pivot Readiness Score™), branding, and website content remain the exclusive intellectual property of FutureProof.</p>
   </div>
 
-  <!-- Data & Privacy -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 6</span> Data Protection & Privacy</h2>
     <p>FutureProof processes your personal data — including your CV and contact information — solely for the purpose of producing your Report. We are based in Spain and operate in compliance with the General Data Protection Regulation (GDPR) (EU) 2016/679 and applicable Spanish data protection law (LOPDGDD). Regardless of where you are located, we apply GDPR-equivalent standards of data protection to all clients globally.</p>
@@ -278,7 +274,6 @@ footer{
     <p>The legal basis for processing is the performance of a contract (Article 6(1)(b) GDPR). For data deletion requests or privacy enquiries, contact <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a>.</p>
   </div>
 
-  <!-- Disclaimers -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 7</span> Disclaimers & Limitation of Liability</h2>
     <p>FutureProof Reports are generated using AI systems trained on publicly available research and industry data. While we make every effort to ensure accuracy and relevance, we cannot guarantee that any specific outcome — including career advancement, avoidance of redundancy, or salary improvement — will result from following the Report's recommendations.</p>
@@ -286,21 +281,6 @@ footer{
     <p>We are not liable for any indirect, incidental, or consequential losses, including but not limited to loss of income, loss of employment, or reputational damage arising from reliance on Report content.</p>
   </div>
 
-  <div class="tos-section">
-    <h2><span class="tos-num">§ X</span> Right of Withdrawal (Desistimiento) Exemption</h2>
-    <p>Under EU consumer protection laws, users typically have a 14-day right of withdrawal for digital purchases. However, because the FutureProof Intelligence Report is a digital product <strong>made strictly to the consumer's specifications and clearly personalized</strong> based on their individual CV, the right of withdrawal does not apply in accordance with Article 103(c) of the Spanish General Law for the Defense of Consumers and Users.</p>
-    <div class="highlight-note">
-      <strong>Important:</strong> By proceeding with your purchase, you expressly consent to the immediate commencement of the service and acknowledge the complete loss of your right of withdrawal once the report generation process has begun.
-    </div>
-  </div>
-
-  <div class="tos-section">
-    <h2><span class="tos-num">§ Y</span> Pricing and Taxes (VAT / IVA)</h2>
-    <p>All baseline prices displayed on the Website are excluding taxes unless explicitly stated otherwise. Because we serve a global B2C audience, the final price at checkout will automatically calculate and include the Value Added Tax (VAT) required by your specific country of residence, in compliance with EU One-Stop Shop (OSS) digital tax regulations.</p>
-    <p>The final total, including all applicable local taxes, will be clearly presented to you prior to finalizing payment.</p>
-  </div>
-
-  <!-- Governing law -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 8</span> Governing Law & Disputes</h2>
     <p>These Terms are governed by and construed in accordance with the laws of Spain. The courts of Spain shall have non-exclusive jurisdiction over any disputes arising from or in connection with these Terms.</p>
@@ -314,35 +294,31 @@ footer{
     <p>We will always attempt to resolve disputes amicably before any formal proceedings. If you have a complaint, contact us at <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a> and we will respond within 5 business days. For EU clients, you may also use the EU Online Dispute Resolution platform at <a href="https://ec.europa.eu/consumers/odr" target="_blank" style="color:var(--gold);">ec.europa.eu/consumers/odr</a>.</p>
   </div>
 
-  <!-- Changes -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 9</span> Amendments</h2>
     <p>FutureProof reserves the right to update these Terms at any time. Changes will be posted on this page with an updated effective date. Continued use of our services following any update constitutes acceptance of the revised Terms. Orders already confirmed at the time of any update will be fulfilled under the Terms in effect at the time of purchase.</p>
   </div>
 
-  <!-- Contact -->
   <div class="tos-section">
     <h2><span class="tos-num">§ 10</span> Contact</h2>
     <p>For any questions regarding these Terms, your order, or your data, please contact:</p>
     <div class="entity-box">
       <strong>FutureProof</strong><br>
+      Operated by: [YOUR FULL LEGAL NAME]<br>
+      NIF/NIE: [YOUR NIF NUMBER]<br>
       Email: <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a><br>
-      Registered activity: Autónomo — Spain<br>
       Response time: within 2 business days
     </div>
   </div>
 
-</div><!-- end tos-body -->
-
-<!-- FOOTER -->
-<footer>
+</div><footer>
   <div class="footer-logo">Future<em>Proof</em></div>
   <div class="footer-copy">© 2026 FutureProof. All rights reserved.</div>
-    <div class="footer-links">
-    <a href="terms.html">Terms of Service</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="cookies.html">Cookies</a>
-    <a href="aviso-legal.html">Aviso Legal</a>
+  <div class="footer-links" style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-top:1rem;">
+    <a href="terms.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Terms of Service</a>
+    <a href="privacy.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Privacy Policy</a>
+    <a href="cookies.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Cookie Policy</a>
+    <a href="aviso-legal.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Aviso Legal</a>
   </div>
 </footer>
 
