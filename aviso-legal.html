@@ -21,8 +21,17 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5%;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--subtle);}
+
+body {
+  font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden;
+  max-width: 1920px; margin: 0 auto; position: relative; box-shadow: 0 0 60px rgba(0,0,0,0.08);
+}
+nav {
+  position: fixed; top: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 5%; background: rgba(255,255,255,0.97); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--subtle); left: 50%; transform: translateX(-50%); width: 100%; max-width: 1920px;
+}
+
 .nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;}
 .nav-logo em{font-style:italic;color:var(--gold);}
 .nav-back{font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:#888;transition:color 0.2s;display:flex;align-items:center;gap:0.4rem;}
@@ -74,22 +83,16 @@ footer{background:#0d0d0d;padding:2rem 5%;display:flex;align-items:center;justif
 <div class="tos-body">
 
   <div class="tos-section">
-    <h2><span class="tos-num">§ 1</span> Identification of the Service Provider</h2>
-    <p>In compliance with Article 10 of Spanish Law 34/2002 of 11 July, on Information Society Services and Electronic Commerce (<em>Ley de Servicios de la Sociedad de la Información y de Comercio Electrónico</em>, LSSI-CE), the following identifying information is provided:</p>
+    <h2><span class="tos-num">§ 1</span> General Information (Datos Identificativos)</h2>
+    <p>In compliance with the duty of information established in Law 34/2002, of July 11, on Services of the Information Society and Electronic Commerce (LSSI-CE) of Spain, the following data legally identifies the owner of this website:</p>
     <div class="entity-box">
-      <p>FutureProof is a commercial brand operated by [Your Full Legal Name], registered as an autónomo in Spain with NIF: [Your NIF], residing at [Your Full Spanish Address].</p>
-      <strong>Commercial name:</strong> FutureProof<br>
-      <strong>Legal status:</strong> Autónomo (self-employed individual) — Spain<br>
-      <strong>Tax identification:</strong> [Your NIE/NIF — add before going live]<br>
-      <strong>Registered activity:</strong> Digital intelligence and career consultancy services<br>
-      <strong>Fiscal address:</strong> [Your registered address or fiscal address in Spain — add before going live]<br>
-      <strong>Contact email:</strong> <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a><br>
-      <strong>Website:</strong> <a href="https://www.futureproof.report" style="color:var(--gold);">www.futureproof.report</a>
+      <strong>Commercial Brand:</strong> FutureProof<br>
+      <strong>Owner / Autónomo:</strong> [YOUR FULL LEGAL NAME]<br>
+      <strong>NIF/NIE:</strong> [YOUR NIF NUMBER]<br>
+      <strong>Registered Address:</strong> [YOUR FULL SPANISH ADDRESS]<br>
+      <strong>Email:</strong> <a href="mailto:hello@futureproof.report" style="color:var(--gold);">hello@futureproof.report</a>
     </div>
-    <div class="highlight-note">
-      <strong>Note before going live</strong>
-      You must complete your NIE/NIF and registered fiscal address above before publishing this page. Under LSSI-CE, failure to display this information is an infraction subject to fines by the Secretaría de Estado de Telecomunicaciones.
-    </div>
+    <p>The term "FutureProof" utilized throughout this website and legal documents is a commercial brand operated exclusively by the individual identified above.</p>
   </div>
 
   <div class="tos-section">
@@ -157,11 +160,11 @@ footer{background:#0d0d0d;padding:2rem 5%;display:flex;align-items:center;justif
 <footer>
   <div class="footer-logo">Future<em>Proof</em></div>
   <div class="footer-copy">© 2026 FutureProof. All rights reserved.</div>
-    <div class="footer-links">
-    <a href="terms.html">Terms of Service</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="cookies.html">Cookies</a>
-    <a href="aviso-legal.html">Aviso Legal</a>
+  <div class="footer-links" style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-top:1rem;">
+    <a href="terms.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Terms of Service</a>
+    <a href="privacy.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Privacy Policy</a>
+    <a href="cookies.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Cookie Policy</a>
+    <a href="aviso-legal.html" style="color:#aaa; text-decoration:none; font-size:0.85rem;">Aviso Legal</a>
   </div>
 </footer>
 
