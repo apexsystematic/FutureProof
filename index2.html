@@ -66,11 +66,15 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+body{
+  font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;
+  max-width: 1920px; margin: 0 auto; position: relative; box-shadow: 0 0 60px rgba(0,0,0,0.08);
+}
 
 /* ── NAV ── */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
+  position:fixed;top:0;z-index:200;
+  left: 50%; transform: translateX(-50%); width: 100%; max-width: 1920px;
   display:flex;align-items:center;justify-content:space-between;
   padding:1.1rem 5%;
   background:rgba(255,255,255,0.97);
