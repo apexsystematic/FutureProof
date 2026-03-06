@@ -616,7 +616,7 @@ footer{
 .page-header {
   padding: 9rem 5% 4rem !important; background: var(--off); border-bottom: 1px solid var(--subtle); text-align: left;
 }
-.page-header-inner { max-width: 800px; margin: 0 auto; }
+.page-header-inner { max-width: 800px; }
 span.page-label {
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block;
