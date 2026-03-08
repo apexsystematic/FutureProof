@@ -6,7 +6,7 @@ const footerHTML = `
     <a href="terms.html">Terms of Service</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="cookies.html">Cookie Policy</a>
-    <a href="aviso-legal.html">Aviso Legal</a>
+    <a href="legal.html">Legal Notice</a>
   </div>
 </footer>
 `;
