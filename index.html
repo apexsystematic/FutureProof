@@ -230,48 +230,377 @@
   </div>
 </section>
 
-<section class="sample-report" id="sample" style="background: var(--white); padding: 5rem 2rem; border-top: 1px solid var(--subtle); border-bottom: 1px solid var(--subtle);">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <div class="section-label">Inside The Audit</div>
-    <h2 class="section-title">Take a look under the hood.</h2>
-    <p class="section-sub" style="max-width: 700px;">
-      At this level, you aren't buying a generic summary. You are acquiring a highly structured, data-dense strategic asset. Here is exactly what your intelligence brief looks like.
-    </p>
+<section class="sample" id="sample">
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 4rem;">
-      
-      <div style="background: var(--off); padding: 1.5rem; border: 1px solid var(--subtle); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-        <div style="background: #e8e8e8; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border-radius: 2px; margin-bottom: 1.5rem; overflow: hidden; border: 1px solid #ddd;">
-           
-        </div>
-        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--ink);">I. The Disruption Dashboard</h4>
-        <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.6;">
-          Your personalized Displacement Risk Index (DRI) and Pivot Readiness Score (PRS) plotted against macro industry benchmarks, giving you an immediate view of your baseline exposure.
-        </p>
-      </div>
+  <div class="section-label">Inside the Report</div>
+  <h2 class="section-title">This is what you'll <em>actually</em> receive.</h2>
+  <p class="section-sub">
+    Three pages from a real Executive Audit. Profile is anonymised — the analysis is not.
+  </p>
 
-      <div style="background: var(--off); padding: 1.5rem; border: 1px solid var(--subtle); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-        <div style="background: #e8e8e8; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border-radius: 2px; margin-bottom: 1.5rem; overflow: hidden; border: 1px solid #ddd;">
-           
-        </div>
-        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--ink);">II. The Task Vulnerability Matrix</h4>
-        <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.6;">
-          A surgical breakdown of your daily activities. We map out exactly which of your specific duties are slated for automation, augmentation, or remain exclusively human.
-        </p>
-      </div>
-
-      <div style="background: var(--off); padding: 1.5rem; border: 1px solid var(--subtle); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-        <div style="background: #e8e8e8; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border-radius: 2px; margin-bottom: 1.5rem; overflow: hidden; border: 1px solid #ddd;">
-           
-        </div>
-        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--ink);">III. The Pivot & Execution Plan</h4>
-        <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.6;">
-          Three financially viable role transitions tailored to your background, complete with a step-by-step 90-day roadmap for upskilling and market repositioning.
-        </p>
-      </div>
-
-    </div>
+  <!-- Tab strip -->
+  <div class="smp-tabs">
+    <button class="smp-tab active" data-tab="scores">Score Dashboard</button>
+    <button class="smp-tab" data-tab="tasks">Task Breakdown</button>
+    <button class="smp-tab" data-tab="pivot">Pivot Pathway #1</button>
   </div>
+
+  <!-- Pages wrapper -->
+  <div class="smp-pages">
+
+    <!-- ── PAGE 1: SCORE DASHBOARD ─────────────────────────────────── -->
+    <div class="smp-page active" id="smp-scores">
+      <div class="smp-card">
+
+        <div class="smp-card-header">
+          <div>
+            <div class="smp-logo">Future<em>Proof</em></div>
+            <div class="smp-tag">Executive Intelligence Audit</div>
+          </div>
+          <div class="smp-card-meta">
+            <div class="smp-card-name">Sarah M.</div>
+            <div class="smp-card-sub">Director of FP&amp;A &middot; Financial Services &middot; 11 yrs</div>
+            <div class="smp-card-sec">Section 1 of 7 &mdash; Score Dashboard</div>
+          </div>
+        </div>
+
+        <div class="smp-body">
+          <h3 class="smp-body-h">Your Two Scores</h3>
+          <p class="smp-body-intro">
+            Both scores are calculated from your actual tasks &mdash; not your job title.
+            A Director of FP&amp;A at a 50-person firm carries different risk than one at a Fortune 500.
+            Yours reflects your specific situation.
+          </p>
+
+          <div class="smp-score-grid">
+
+            <div class="smp-score-block smp-danger">
+              <span class="smp-tier-badge">HIGH RISK</span>
+              <div class="smp-score-lbl">Displacement Risk Index&trade;</div>
+              <div class="smp-score-row">
+                <span class="smp-score-num" id="smp-dri">0</span>
+                <span class="smp-score-den">&thinsp;/ 100</span>
+              </div>
+              <div class="smp-bar-track">
+                <div class="smp-bar-fill smp-bar-danger" id="smp-dri-bar"></div>
+              </div>
+              <p class="smp-score-note">
+                3 of your 5 core tasks show significant overlap with capabilities already deployed
+                in financial services automation tools. Action recommended within 12 months.
+              </p>
+            </div>
+
+            <div class="smp-score-block smp-safe">
+              <span class="smp-tier-badge">STRONG</span>
+              <div class="smp-score-lbl">Pivot Readiness Score&trade;</div>
+              <div class="smp-score-row">
+                <span class="smp-score-num" id="smp-prs">0</span>
+                <span class="smp-score-den">&thinsp;/ 100</span>
+              </div>
+              <div class="smp-bar-track">
+                <div class="smp-bar-fill smp-bar-safe" id="smp-prs-bar"></div>
+              </div>
+              <p class="smp-score-note">
+                Deep financial modeling expertise, cross-functional stakeholder relationships,
+                and regulated-environment experience all transfer directly into high-value roles.
+              </p>
+            </div>
+
+          </div><!-- /score-grid -->
+
+          <div class="smp-strip">
+            <div class="smp-strip-item">
+              <span class="smp-strip-val">2026</span>
+              <span class="smp-strip-key">Risk onset horizon</span>
+            </div>
+            <div class="smp-strip-div"></div>
+            <div class="smp-strip-item">
+              <span class="smp-strip-val">3 paths</span>
+              <span class="smp-strip-key">Viable pivot options</span>
+            </div>
+            <div class="smp-strip-div"></div>
+            <div class="smp-strip-item">
+              <span class="smp-strip-val">$148K</span>
+              <span class="smp-strip-key">Median salary, top pivot</span>
+            </div>
+          </div>
+
+          <div class="smp-analyst-box">
+            <div class="smp-analyst-lbl">Analyst Note</div>
+            <p class="smp-analyst-txt">
+              Sarah&rsquo;s profile presents a pattern common in senior FP&amp;A roles: a
+              <strong>high DRI driven by reportable and routine analytical tasks</strong>, offset by a
+              strong PRS anchored in institutional knowledge and stakeholder trust that software cannot
+              replicate. The recommendation is not to leave finance &mdash; it is to move up the value
+              chain within it before automation reaches the Director tier.
+              Our timeline estimates that window at <strong>18&ndash;24 months</strong>.
+            </p>
+          </div>
+        </div><!-- /body -->
+
+        <div class="smp-footer">
+          <span class="smp-footer-l">FutureProof Intelligence Audit &middot; Confidential</span>
+          <span class="smp-footer-r">DRI-2025-FIN-047 &middot; Page 1 of 12</span>
+        </div>
+
+      </div><!-- /card -->
+    </div><!-- /page scores -->
+
+
+    <!-- ── PAGE 2: TASK TABLE ──────────────────────────────────────── -->
+    <div class="smp-page" id="smp-tasks">
+      <div class="smp-card">
+
+        <div class="smp-card-header">
+          <div>
+            <div class="smp-logo">Future<em>Proof</em></div>
+            <div class="smp-tag">Executive Intelligence Audit</div>
+          </div>
+          <div class="smp-card-meta">
+            <div class="smp-card-name">Sarah M.</div>
+            <div class="smp-card-sub">Director of FP&amp;A &middot; Financial Services &middot; 11 yrs</div>
+            <div class="smp-card-sec">Section 3 of 7 &mdash; Task Vulnerability Assessment</div>
+          </div>
+        </div>
+
+        <div class="smp-body">
+          <h3 class="smp-body-h">Task-by-Task Breakdown</h3>
+          <p class="smp-body-intro">
+            Each task assessed against current AI capability in financial services, weighted by
+            your weekly time allocation. Ranked by automation exposure, not by importance.
+          </p>
+
+          <div class="smp-table-wrap">
+            <table class="smp-table">
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Risk</th>
+                  <th>Score</th>
+                  <th class="smp-hide-mobile">Analyst Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="smp-task-name">Variance analysis &amp; commentary</div>
+                    <div class="smp-task-pct">~30% of weekly time</div>
+                  </td>
+                  <td><span class="smp-pill smp-pill-c"><span class="smp-dot"></span>Critical</span></td>
+                  <td>
+                    <div class="smp-mini-track"><div class="smp-mini-fill smp-fill-c" style="width:88%"></div></div>
+                    <div class="smp-mini-num">88</div>
+                  </td>
+                  <td class="smp-hide-mobile smp-note-cell">LLM-based tools (Workiva, Planful AI) already automate narrative generation from variance data at Director level in 63% of Fortune 500 finance teams.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="smp-task-name">Budget model maintenance</div>
+                    <div class="smp-task-pct">~25% of weekly time</div>
+                  </td>
+                  <td><span class="smp-pill smp-pill-c"><span class="smp-dot"></span>Critical</span></td>
+                  <td>
+                    <div class="smp-mini-track"><div class="smp-mini-fill smp-fill-c" style="width:82%"></div></div>
+                    <div class="smp-mini-num">82</div>
+                  </td>
+                  <td class="smp-hide-mobile smp-note-cell">Copilot for Finance pilots show 70% reduction in model maintenance time. Highly rule-based and susceptible to agentic automation.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="smp-task-name">Board &amp; exec reporting</div>
+                    <div class="smp-task-pct">~20% of weekly time</div>
+                  </td>
+                  <td><span class="smp-pill smp-pill-h"><span class="smp-dot"></span>High</span></td>
+                  <td>
+                    <div class="smp-mini-track"><div class="smp-mini-fill smp-fill-h" style="width:64%"></div></div>
+                    <div class="smp-mini-num">64</div>
+                  </td>
+                  <td class="smp-hide-mobile smp-note-cell">Data assembly: high risk. Interpretive judgment and board relationships: human-dependent for now. Augmentation before displacement.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="smp-task-name">Cross-functional stakeholder mgmt</div>
+                    <div class="smp-task-pct">~15% of weekly time</div>
+                  </td>
+                  <td><span class="smp-pill smp-pill-g"><span class="smp-dot"></span>Managed</span></td>
+                  <td>
+                    <div class="smp-mini-track"><div class="smp-mini-fill smp-fill-g" style="width:18%"></div></div>
+                    <div class="smp-mini-num">18</div>
+                  </td>
+                  <td class="smp-hide-mobile smp-note-cell">Trust-building, conflict resolution, political navigation. AI has no meaningful foothold here. Your primary moat.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="smp-task-name">Strategic scenario planning</div>
+                    <div class="smp-task-pct">~10% of weekly time</div>
+                  </td>
+                  <td><span class="smp-pill smp-pill-m"><span class="smp-dot"></span>Moderate</span></td>
+                  <td>
+                    <div class="smp-mini-track"><div class="smp-mini-fill smp-fill-m" style="width:42%"></div></div>
+                    <div class="smp-mini-num">42</div>
+                  </td>
+                  <td class="smp-hide-mobile smp-note-cell">Data modeling components face high exposure. Strategic judgment and assumption-setting remain protected. Likely augmentation, not replacement.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="smp-insight-grid">
+            <div class="smp-insight smp-insight-r">
+              <span class="smp-insight-lbl">Key Vulnerability</span>
+              55% of weekly time is in Critical or High-risk tasks &mdash; above the 44% threshold
+              that flags a profile as requiring immediate action.
+            </div>
+            <div class="smp-insight smp-insight-g">
+              <span class="smp-insight-lbl">Key Protection</span>
+              Stakeholder management (18/100) and strategic judgment are durable moats
+              that transfer directly into the top-ranked pivot pathway.
+            </div>
+          </div>
+        </div>
+
+        <div class="smp-footer">
+          <span class="smp-footer-l">FutureProof Intelligence Audit &middot; Confidential</span>
+          <span class="smp-footer-r">DRI-2025-FIN-047 &middot; Page 4 of 12</span>
+        </div>
+
+      </div>
+    </div><!-- /page tasks -->
+
+
+    <!-- ── PAGE 3: PIVOT PATHWAY ───────────────────────────────────── -->
+    <div class="smp-page" id="smp-pivot">
+      <div class="smp-card">
+
+        <div class="smp-card-header">
+          <div>
+            <div class="smp-logo">Future<em>Proof</em></div>
+            <div class="smp-tag">Executive Intelligence Audit</div>
+          </div>
+          <div class="smp-card-meta">
+            <div class="smp-card-name">Sarah M.</div>
+            <div class="smp-card-sub">Director of FP&amp;A &middot; Financial Services &middot; 11 yrs</div>
+            <div class="smp-card-sec">Section 5 of 7 &mdash; Pivot Pathway #1 of 3</div>
+          </div>
+        </div>
+
+        <div class="smp-body">
+
+          <div class="smp-pivot-top">
+            <div class="smp-pivot-left">
+              <div class="smp-pivot-rank-row">
+                <div class="smp-pivot-num">1</div>
+                <div>
+                  <div class="smp-pivot-rank-lbl">Top Recommended Pivot</div>
+                  <div class="smp-pivot-role">VP of Finance Strategy &amp; AI Integration</div>
+                </div>
+              </div>
+              <div class="smp-pivot-chips">
+                <span class="smp-chip">Adjacent Role</span>
+                <span class="smp-chip">12&ndash;18 month transition</span>
+                <span class="smp-chip">$140K&ndash;$175K base</span>
+                <span class="smp-chip">BLS growth +14% by 2030</span>
+              </div>
+            </div>
+            <div class="smp-pivot-scores">
+              <div class="smp-pivot-score">
+                <span class="smp-pivot-score-val">91</span>
+                <span class="smp-pivot-score-key">AI Resistance</span>
+              </div>
+              <div class="smp-pivot-score">
+                <span class="smp-pivot-score-val">87</span>
+                <span class="smp-pivot-score-key">Feasibility</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="smp-rationale">
+            <div class="smp-rationale-lbl">Why this fits Sarah specifically</div>
+            This role is emerging in financial services companies with $500M+ revenue that have
+            committed to AI-augmented finance functions but lack internal leaders who understand
+            both the technical landscape and the CFO&rsquo;s priorities. Sarah&rsquo;s 11-year FP&amp;A
+            background gives her the domain credibility external tech hires lack. Her cross-functional
+            stakeholder experience &mdash; her highest-scoring non-automated skill &mdash; is exactly
+            what these transitions require. She doesn&rsquo;t need to become a technologist. She needs
+            to become the person who manages technologists on behalf of finance leadership.
+          </div>
+
+          <div class="smp-skills-grid">
+            <div>
+              <div class="smp-skills-lbl">Skills You Already Have</div>
+              <div class="smp-tags">
+                <span class="smp-stag smp-stag-have">Financial modeling</span>
+                <span class="smp-stag smp-stag-have">CFO relationship</span>
+                <span class="smp-stag smp-stag-have">Cross-functional influence</span>
+                <span class="smp-stag smp-stag-have">Regulated environment</span>
+                <span class="smp-stag smp-stag-have">Board reporting</span>
+                <span class="smp-stag smp-stag-have">Vendor evaluation</span>
+              </div>
+            </div>
+            <div>
+              <div class="smp-skills-lbl">Skills to Build (12&ndash;18 months)</div>
+              <div class="smp-tags">
+                <span class="smp-stag smp-stag-need">AI tool evaluation</span>
+                <span class="smp-stag smp-stag-need">Change management</span>
+                <span class="smp-stag smp-stag-need">Prompt engineering basics</span>
+                <span class="smp-stag smp-stag-need">AI governance fundamentals</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="smp-first-step">
+            <div class="smp-first-step-arrow">&rarr;</div>
+            <div>
+              <span class="smp-first-step-lbl">Your First Step &mdash; Week 1</span>
+              <p class="smp-first-step-txt">
+                Identify the AI implementation initiative currently underway or planned at your company.
+                Request involvement as the finance stakeholder lead. This positions you internally before
+                you need to position yourself externally &mdash; and gives you a live case study for your
+                resume within 6 months.
+              </p>
+            </div>
+          </div>
+
+          <!-- Redacted blur for pathways 2 & 3 -->
+          <div class="smp-redacted-wrap">
+            <div class="smp-redacted-lbl">Pivot Pathways 2 &amp; 3 &mdash; Included in Full Report</div>
+            <div class="smp-redacted-lines">
+              <div class="smp-redline" style="width:100%"></div>
+              <div class="smp-redline" style="width:90%"></div>
+              <div class="smp-redline" style="width:84%"></div>
+              <div class="smp-redline" style="width:70%"></div>
+              <div class="smp-redline" style="width:95%"></div>
+              <div class="smp-redline" style="width:78%"></div>
+              <div class="smp-redline" style="width:60%"></div>
+            </div>
+            <div class="smp-unlock">
+              <p class="smp-unlock-txt">Pathways 2 &amp; 3, the 90-day plan, and the full bibliography are in your report.</p>
+              <a href="#contact" class="btn btn-gold">Get My Executive Audit &rarr;</a>
+            </div>
+          </div>
+
+        </div><!-- /body -->
+
+        <div class="smp-footer">
+          <span class="smp-footer-l">FutureProof Intelligence Audit &middot; Confidential</span>
+          <span class="smp-footer-r">DRI-2025-FIN-047 &middot; Page 7 of 12</span>
+        </div>
+
+      </div>
+    </div><!-- /page pivot -->
+
+  </div><!-- /pages -->
+
+  <p class="smp-disclaimer">
+    Profile anonymised. Sector, role, and task data reflect a real audit delivered Q4 2025.<br>
+    Your report will be built from your resume and reflect your actual career profile.
+  </p>
+
+  <div class="smp-bottom-cta">
+    <p class="smp-bottom-cta-txt">Ready to see your own numbers?</p>
+    <a href="#contact" class="btn btn-gold">Get My Free Risk Score</a>
+  </div>
+
 </section>
 
 <section class="process" id="process">
