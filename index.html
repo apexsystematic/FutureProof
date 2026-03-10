@@ -26,6 +26,7 @@
   <a class="nav-logo" href="#">Future<em>Proof</em></a>
   <div class="nav-links">
     <a href="#what">The Audit</a>
+    <a href="#sample">Inside the Report</a>
     <a href="#scoring">Methodology</a>
     <a href="#process">How It Works</a>
     <a href="#testimonials">Client Outcomes</a>
@@ -41,6 +42,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
   <a href="#what" class="mobile-link">The Audit</a>
+  <a href="#sample" class="mobile-link">Inside the Report</a>
   <a href="#scoring" class="mobile-link">Methodology</a>
   <a href="#process" class="mobile-link">How It Works</a>
   <a href="#testimonials" class="mobile-link">Client Outcomes</a>
@@ -568,6 +570,65 @@
     });
   }
   (document.readyState === 'loading') ? document.addEventListener('DOMContentLoaded', initAnims) : initAnims();
+
+  /* SAMPLE REPORT TABS & ANIMATIONS */
+  var tabs  = document.querySelectorAll('.smp-tab');
+  var pages = document.querySelectorAll('.smp-page');
+
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-tab');
+
+      tabs.forEach(function (b) { b.classList.remove('active'); });
+      pages.forEach(function (p) { p.classList.remove('active'); });
+
+      btn.classList.add('active');
+      document.getElementById('smp-' + id).classList.add('active');
+
+      if (id === 'scores') { animateScores(); }
+    });
+  });
+
+  /* Score counter animation */
+  function animateScores() {
+    countUp('smp-dri', 71, 1100);
+    countUp('smp-prs', 84, 1100);
+    setTimeout(function () {
+      var db = document.getElementById('smp-dri-bar');
+      var pb = document.getElementById('smp-prs-bar');
+      if (db) db.style.width = '71%';
+      if (pb) pb.style.width = '84%';
+    }, 80);
+  }
+
+  function countUp(id, target, duration) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var e = 1 - Math.pow(1 - p, 3); /* ease-out cubic */
+      el.textContent = Math.round(e * target);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* Trigger numbers on scroll into view */
+  var fired = false;
+  if (window.IntersectionObserver) {
+    var ioScores = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !fired) {
+          fired = true;
+          animateScores();
+        }
+      });
+    }, { threshold: 0.25 });
+    var scoreCard = document.getElementById('smp-scores');
+    if (scoreCard) ioScores.observe(scoreCard);
+  }
 })();
 </script>
 
