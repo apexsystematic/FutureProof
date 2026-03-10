@@ -731,11 +731,37 @@ footer{
   .smp-score-grid,.smp-insight-grid,.smp-skills-grid{grid-template-columns:1fr;}
   .smp-pivot-scores{display:none;}
   .smp-hide-mobile{display:none;}
-  .smp-card-header{padding:1.1rem 1rem 1rem 1.4rem;}
+  .smp-card-header{
+    padding:1.1rem 1rem 1rem 1.4rem;
+    flex-direction:column;
+    gap:0.7rem;
+  }
+  .smp-card-meta{text-align:right;width:100%;}
   .smp-body{padding:1.4rem 1rem 1.8rem;}
   .smp-footer{padding:0.6rem 1rem;}
-  .smp-strip{grid-template-columns:1fr 1px 1fr;}
-  .smp-strip-item:last-child,.smp-strip-div:last-of-type{display:none;}
+  /* Strip: vertical stack so all 3 stats fit */
+  .smp-strip{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    padding:0.8rem 1.2rem;
+  }
+  .smp-strip-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    text-align:left;
+    padding:0.55rem 0;
+    border-bottom:1px solid rgba(184,150,62,0.15);
+    width:100%;
+  }
+  .smp-strip-item:last-child{
+    border-bottom:none;
+    display:flex;
+  }
+  .smp-strip-div{display:none;}
+  .smp-strip-val{font-size:1.1rem;}
+  .smp-strip-key{margin-top:0;font-size:0.68rem;}
 }
 
 /* =========================================
