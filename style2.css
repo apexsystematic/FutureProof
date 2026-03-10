@@ -734,6 +734,7 @@ footer{
   .smp-card-header{
     padding:1.1rem 1rem 1rem 1.4rem;
     flex-direction:column;
+    flex-wrap:nowrap;
     gap:0.7rem;
   }
   .smp-card-meta{text-align:right;width:100%;}
