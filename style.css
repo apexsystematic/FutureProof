@@ -844,6 +844,72 @@ table.cookie-table tr:nth-child(even) td { background: var(--off); }
 .type-essential { background: #e8f5ee; color: #1e6e4a; }
 .type-functional { background: var(--gold-pale); color: #7a5510; }
 
+/* Market Reality */
+/* ── MARKET REALITY SECTION ── */
+.market-reality {
+  background: var(--dark);
+  color: var(--white);
+  padding: 5rem 2rem;
+}
+
+.market-reality-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.market-reality .section-label {
+  color: var(--gold-lt);
+}
+
+.market-reality .section-title {
+  color: var(--white);
+}
+
+.market-reality .section-sub {
+  color: #aaa;
+  margin-bottom: 4rem;
+  max-width: 800px;
+}
+
+.market-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.market-stat-card {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.5rem;
+}
+
+.market-stat-num {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-lt);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.market-stat-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--white);
+}
+
+.market-stat-desc {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.market-stat-source {
+  color: var(--gold-lt);
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  display: block;
+  font-weight: 600;
+}
+
 /* Legal Mobile Overrides */
 @media(max-width: 700px) {
   .page-header { padding: 7rem 5% 3rem !important; }
