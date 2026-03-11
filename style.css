@@ -975,3 +975,9 @@ table.cookie-table tr:nth-child(even) td { background: var(--off); }
   .rights-grid { grid-template-columns: 1fr; }
   table.cookie-table { font-size: 0.78rem; display: block; overflow-x: auto; }
 }
+
+/* Constrain content width while allowing full-bleed backgrounds */
+section, header, footer, nav {
+  padding-left: max(2rem, calc((100vw - 1440px) / 2)) !important;
+  padding-right: max(2rem, calc((100vw - 1440px) / 2)) !important;
+}
