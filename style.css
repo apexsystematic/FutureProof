@@ -38,9 +38,9 @@ nav {
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--subtle);
-  left: 50%; 
-  transform: translateX(-50%); 
-  width: 100%; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 1440px);
   max-width: 1440px;
 }
 .nav-logo{
@@ -113,9 +113,10 @@ nav {
 /* ── HERO ── */
 .hero{
   min-height:100vh;
+  max-height:1000px;
   display:grid;grid-template-columns:1fr 1fr;
   align-items:center;
-  padding:9rem 5% 5rem;
+  padding:clamp(5rem, 10vh, 9rem) 5% clamp(3rem, 6vh, 5rem);
   gap:4rem;
   position:relative;overflow:hidden;
 }
