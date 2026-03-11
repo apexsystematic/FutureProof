@@ -844,7 +844,6 @@ table.cookie-table tr:nth-child(even) td { background: var(--off); }
 .type-essential { background: #e8f5ee; color: #1e6e4a; }
 .type-functional { background: var(--gold-pale); color: #7a5510; }
 
-/* Market Reality */
 /* ── MARKET REALITY SECTION ── */
 .market-reality {
   background: var(--dark);
@@ -908,6 +907,56 @@ table.cookie-table tr:nth-child(even) td { background: var(--off); }
   margin-top: 1rem;
   display: block;
   font-weight: 600;
+}
+
+/* ── TESTIMONIALS SECTION ── */
+.testimonials-section {
+  background: var(--off);
+  padding: 5rem 2rem;
+  border-top: 1px solid var(--subtle);
+  border-bottom: 1px solid var(--subtle);
+}
+
+.testimonials-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.testimonial-card {
+  background: var(--white);
+  padding: 2rem;
+  border-left: 3px solid var(--gold);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.testimonial-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  font-weight: 700;
+  color: var(--dark);
+  font-size: 0.95rem;
+}
+
+.testimonial-title {
+  font-size: 0.85rem;
+  color: var(--slate);
+  margin-top: 0.25rem;
 }
 
 /* Legal Mobile Overrides */
