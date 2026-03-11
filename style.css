@@ -31,14 +31,12 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem 5%;
+  /* This aligns the content to 1440px but lets the background bleed */
+  padding: 1.1rem max(5%, calc((100% - 1440px) / 2));
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--subtle);
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(100%, 1440px);
-  max-width: 1440px;
+  width: 100%;
 }
 .nav-logo{
   font-family:'Playfair Display',serif;
@@ -976,8 +974,13 @@ table.cookie-table tr:nth-child(even) td { background: var(--off); }
   table.cookie-table { font-size: 0.78rem; display: block; overflow-x: auto; }
 }
 
-/* Constrain content width while allowing full-bleed backgrounds */
-section, header, footer, nav {
-  padding-left: max(2rem, calc((100vw - 1440px) / 2)) !important;
-  padding-right: max(2rem, calc((100vw - 1440px) / 2)) !important;
+/* Ensure backgrounds stretch, but text aligns to 1440px */
+section, footer {
+  padding-left: max(5%, calc((100% - 1440px) / 2)) !important;
+  padding-right: max(5%, calc((100% - 1440px) / 2)) !important;
+}
+
+/* Force Market Reality inner div to expand to the full 1440px */
+#reality > div {
+  max-width: none !important;
 }
