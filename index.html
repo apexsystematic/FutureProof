@@ -4,22 +4,66 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Will AI Replace My Job? Get Your Free Career Risk Score | FutureProof</title>
+<title>Will AI Replace My Job? Free Career Risk Score | FutureProof</title>
 <meta name="description" content="Find out your exposure to AI automation. Get a free baseline score, or upgrade to a comprehensive, human-reviewed career pivot strategy.">
-<meta name="keywords" content="AI career risk, job automation assessment, career pivot strategy, displacement risk index, AI disruption report">
 <meta name="author" content="FutureProof">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.futureproof.report/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.futureproof.report/">
-<meta property="og:title" content="FutureProof | AI Career Risk Assessment & Displacement Report">
+<meta property="og:title" content="Will AI Replace My Job? Free Career Risk Score | FutureProof">
 <meta property="og:description" content="Manage your career risk. Get a personalized risk score and a 2026-2030 disruption timeline tailored to your specific resume.">
+<meta property="og:image" content="https://www.futureproof.report/img/cover.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FutureProof | AI Career Risk Assessment">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "FutureProof Executive Audit",
+  "description": "A comprehensive AI career risk assessment, displacement report, and pivot strategy tailored to your specific resume.",
+  "brand": {
+    "@type": "Brand",
+    "name": "FutureProof"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "0",
+    "highPrice": "1995",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Baseline Risk Score",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "The Executive Audit",
+        "price": "995",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "The Executive Programme",
+        "price": "1995",
+        "priceCurrency": "USD"
+      }
+    ]
+  }
+}
+</script>
+  
 </head>
+
 <body>
 
 <nav>
@@ -706,107 +750,6 @@
     </div>
   </div>
 </section>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-(function(){
-  /* BURGER MENU */
-  var btn    = document.getElementById('hamburger');
-  var menu   = document.getElementById('mobileMenu');
-  var closer = document.getElementById('mobileClose');
-
-  function openNav(){
-    if(!menu) return;
-    menu.style.display = 'flex';
-    setTimeout(function() { menu.style.opacity = '1'; }, 10);
-    if(btn) btn.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNav(){
-    if(!menu) return;
-    menu.style.opacity = '0';
-    if(btn) btn.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(function(){ menu.style.display = 'none'; }, 300);
-  }
-
-  if(btn) {
-    btn.addEventListener('click', function() {
-      (menu.style.opacity === '1') ? closeNav() : openNav();
-    });
-  }
-  if(closer) closer.addEventListener('click', closeNav);
-  document.querySelectorAll('.mobile-link').forEach(function(l){ l.addEventListener('click', closeNav); });
-
-  /* SCROLL ANIMATIONS */
-  function initAnims(){
-    var sel = '.what-card,.score-card,.highlight-box,.process-step,.price-card,.cred-card,.faq-item';
-    var els = document.querySelectorAll(sel);
-    if(!window.IntersectionObserver){
-      els.forEach(function(el){ el.style.opacity='1'; el.style.transform='none'; });
-      return;
-    }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.style.opacity='1';
-          e.target.style.transform='translateY(0)';
-          io.unobserve(e.target);
-        }
-      });
-    },{threshold:0.1});
-    els.forEach(function(el){
-      el.style.opacity='0';
-      el.style.transform='translateY(20px)';
-      el.style.transition='opacity 0.6s ease, transform 0.6s ease';
-      io.observe(el);
-    });
-  }
-  (document.readyState === 'loading') ? document.addEventListener('DOMContentLoaded', initAnims) : initAnims();
-
-  /* SAMPLE REPORT TABS & ANIMATIONS */
-  var tabs  = document.querySelectorAll('.smp-tab');
-  var pages = document.querySelectorAll('.smp-page');
-
-  tabs.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var id = btn.getAttribute('data-tab');
-
-      tabs.forEach(function (b) { b.classList.remove('active'); });
-      pages.forEach(function (p) { p.classList.remove('active'); });
-
-      btn.classList.add('active');
-      document.getElementById('smp-' + id).classList.add('active');
-
-      if (id === 'scores') { animateScores(); }
-    });
-  });
-
-  /* Score counter animation */
-  function animateScores() {
-    countUp('smp-dri', 71, 1100);
-    countUp('smp-prs', 84, 1100);
-    setTimeout(function () {
-      var db = document.getElementById('smp-dri-bar');
-      var pb = document.getElementById('smp-prs-bar');
-      if (db) db.style.width = '71%';
-      if (pb) pb.style.width = '84%';
-    }, 80);
-  }
-
-  function countUp(id, target, duration) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    var start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / duration, 1);
-      var e = 1 - Math.pow(1 - p, 3); /* ease-out cubic */
-      el.textContent = Math.round(e * target);
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
