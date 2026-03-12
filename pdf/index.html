@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page cover">
+        <div class="brand-line"></div>
+        <div class="header-logo">FUTURE•PROOF</div>
+        <div class="report-meta">
+            <span class="tag">US EDITION · 2026 INTELLIGENCE</span>
+            <h1>Intelligence Report: {{full_name}}</h1>
+            <p class="role-subtitle">{{current_job_title}}</p>
+        </div>
+        <div class="dri-score-box">
+            <span class="score-label">DISRUPTION RISK INDEX (DRI)</span>
+            <div class="score-value">{{dri_score}}%</div>
+        </div>
+        <div class="footer-meta">
+            Prepared by FutureProof Intelligence · Confidental
+        </div>
+    </div>
+
+    <div class="page content">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2>Contextual Analysis</h2>
+        </div>
+        <div class="report-body">
+            {{stage_5_markdown_output}}
+        </div>
+    </div>
+</body>
+</html>
