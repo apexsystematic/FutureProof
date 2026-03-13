@@ -640,7 +640,8 @@ footer a:hover{color:var(--gold);}
   // Replace with your Cloudflare Worker URL once deployed (Step 10 in the guide)
   // For local testing, you can use the Anthropic API directly (expose key temporarily)
   var API_URL = 'https://YOUR-WORKER.workers.dev'; // ← replace this
-  var LOOPS_KEY = 're_CnbzbChA_6d8sdxaLSRAZyZmBqZdAhuqZ'; // ← replace this
+  var BREVO_API_KEY = 'YOUR_BREVO_API_KEY'; // ← replace with your Brevo v3 API key
+  var BREVO_LIST_ID = 0; // ← replace with your Free Score Leads list ID (integer, e.g. 3)
 
   /* ── HELPERS ── */
   function $(id){ return document.getElementById(id); }
@@ -838,28 +839,30 @@ footer a:hover{color:var(--gold);}
 
     var sd = window._scoreData || {};
 
-    // Add to Loops
-    fetch('https://app.loops.so/api/v1/contacts/create', {
+    // Add to Brevo
+    fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + LOOPS_KEY,
+        'api-key': BREVO_API_KEY,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         email: email,
-        userGroup: 'free-score',
-        source: 'score-page',
-        dri_score: sd.score,
-        job_title: sd.jobTitle,
-        industry: sd.industry,
-        risk_level: sd.riskLevel,
-        verdict: sd.verdict,
-        timeline: sd.timeline,
-        top_tasks: (sd.tasks||[]).join(' | ')
+        listIds: [BREVO_LIST_ID],
+        updateEnabled: true,
+        attributes: {
+          DRI_SCORE:  sd.score,
+          JOB_TITLE:  sd.jobTitle,
+          INDUSTRY:   sd.industry,
+          RISK_LEVEL: sd.riskLevel,
+          VERDICT:    sd.verdict,
+          TIMELINE:   sd.timeline,
+          TOP_TASKS:  (sd.tasks||[]).join(' | ')
+        }
       })
     })
     .then(function(){ showPostEmail(); })
-    .catch(function(){ showPostEmail(); }); // Show success even if Loops fails — don't block the UX
+    .catch(function(){ showPostEmail(); }); // Show success even if Brevo call fails — don't block the UX
   };
 
   function showPostEmail(){
