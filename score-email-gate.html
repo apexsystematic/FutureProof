@@ -586,6 +586,8 @@ footer a:hover{color:var(--gold);}
 
     <div class="timeline-pill" id="timelinePill"></div>
 
+    <div id="lowExposureNote" style="display:none;background:rgba(76,175,136,0.08);border:1px solid rgba(76,175,136,0.2);border-radius:3px;padding:1rem 1.2rem;font-size:0.88rem;color:#4caf88;line-height:1.6;margin-bottom:2rem;"></div>
+
     <div class="tasks-section">
       <div class="tasks-label">Your Most Exposed Tasks</div>
       <div id="tasksList"></div>
@@ -741,12 +743,21 @@ footer a:hover{color:var(--gold);}
       '- Industry: ' + industry + '\n' +
       '- Experience: ' + exp + '\n' +
       '- Seniority: ' + seniority + '\n\n' +
+      'Rules for top_tasks:\n' +
+      '- List ONLY tasks from this role that AI can realistically automate or significantly erode within 5 years.\n' +
+      '- Automatable examples: data entry, report generation, scheduling, document review, pattern-based analysis, query routing, transcription.\n' +
+      '- DO NOT list tasks that are inherently human: physical instruction, hands-on care, live coaching, emotional support, relationship-building, creative judgment, ethical decisions, embodied skill.\n' +
+      '- If fewer than 3 tasks are genuinely AI-exposed, return only those that are. Never pad with non-exposed tasks. Return an empty array if none qualify.\n\n' +
+      'Rules for low_exposure_note:\n' +
+      '- If dri_score is below 35, set low_exposure_note to one sentence explaining why this role is resilient (physical presence, human judgment, embodied skill, etc).\n' +
+      '- Otherwise set low_exposure_note to null.\n\n' +
       'Return ONLY a valid JSON object. No markdown. No explanation. No code fences. Just the raw JSON:\n' +
       '{\n' +
       '  "dri_score": <integer 0-100>,\n' +
       '  "verdict": "<one specific sentence max 15 words about this exact role>",\n' +
       '  "risk_level": "<Low|Moderate|High|Critical>",\n' +
-      '  "top_tasks": ["<task 1>", "<task 2>", "<task 3>"],\n' +
+      '  "top_tasks": ["<only genuinely AI-exposed tasks, 0-3 items>"],\n' +
+      '  "low_exposure_note": "<one sentence or null>",\n' +
       '  "timeline": "<specific timeframe e.g. 18-24 months before material task erosion begins>"\n' +
       '}';
 
@@ -806,11 +817,29 @@ footer a:hover{color:var(--gold);}
     $('resultBar').style.width = '0%';
 
     // Tasks
-    var tasksHtml = '';
-    (data.top_tasks || []).forEach(function(task){
-      tasksHtml += '<div class="task-item">' + task + '</div>';
-    });
-    $('tasksList').innerHTML = tasksHtml;
+    var tasks = data.top_tasks || [];
+    var tasksSection = $('tasksList').closest ? $('tasksList').parentElement : $('tasksList').parentNode;
+    if(tasks.length === 0){
+      tasksSection.style.display = 'none';
+    } else {
+      tasksSection.style.display = '';
+      var tasksHtml = '';
+      tasks.forEach(function(task){
+        tasksHtml += '<div class="task-item">' + task + '</div>';
+      });
+      $('tasksList').innerHTML = tasksHtml;
+    }
+
+    // Low exposure note
+    var noteEl = $('lowExposureNote');
+    if(noteEl){
+      if(data.low_exposure_note){
+        noteEl.textContent = data.low_exposure_note;
+        noteEl.style.display = 'block';
+      } else {
+        noteEl.style.display = 'none';
+      }
+    }
 
     // Timeline
     $('timelinePill').textContent = data.timeline || '';
