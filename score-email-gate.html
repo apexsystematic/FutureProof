@@ -528,13 +528,14 @@ footer a:hover{color:var(--gold);}
         <label for="seniority">Seniority Level</label>
         <div class="select-wrap">
           <select id="seniority">
-            <option value="" disabled selected>Select level</option>
-            <option>Junior / Entry level</option>
-            <option>Mid-level</option>
-            <option>Senior</option>
-            <option>Manager / Team lead</option>
-            <option>Director</option>
-            <option>VP / C-Suite</option>
+  <option value="" disabled selected>Select level</option>
+  <option>Self-Employed / Freelance</option>
+  <option>Junior / Entry level</option>
+  <option>Mid-level</option>
+  <option>Senior</option>
+  <option>Manager / Team lead</option>
+  <option>Director</option>
+  <option>VP / C-Suite</option>
           </select>
         </div>
       </div>
@@ -743,7 +744,8 @@ footer a:hover{color:var(--gold);}
       '- Industry: ' + industry + '\n' +
       '- Experience: ' + exp + '\n' +
       '- Seniority: ' + seniority + '\n\n' +
-      'Rules for top_tasks:\n' +
+'If seniority is "Self-Employed / Freelance", assess scope of work and client complexity using years of experience as a proxy for depth — do not apply corporate hierarchy logic.\n\n' +
+'Rules for top_tasks:\n' +
       '- List ONLY tasks from this role that AI can realistically automate or significantly erode within 5 years.\n' +
       '- Automatable examples: data entry, report generation, scheduling, document review, pattern-based analysis, query routing, transcription.\n' +
       '- DO NOT list tasks that are inherently human: physical instruction, hands-on care, live coaching, emotional support, relationship-building, creative judgment, ethical decisions, embodied skill.\n' +
