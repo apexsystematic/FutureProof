@@ -870,27 +870,23 @@ footer a:hover{color:var(--gold);}
     var sd = window._scoreData || {};
 
     // Add to Brevo
-    fetch('https://api.brevo.com/v3/contacts', {
-      method: 'POST',
-      headers: {
-        'api-key': BREVO_API_KEY,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: email,
-        listIds: [BREVO_LIST_ID],
-        updateEnabled: true,
-        attributes: {
-          DRI_SCORE:  sd.score,
-          JOB_TITLE:  sd.jobTitle,
-          INDUSTRY:   sd.industry,
-          RISK_LEVEL: sd.riskLevel,
-          VERDICT:    sd.verdict,
-          TIMELINE:   sd.timeline,
-          TOP_TASKS:  (sd.tasks||[]).join(' | ')
-        }
-      })
+    fetch(API_URL + '/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      listIds: [BREVO_LIST_ID],
+      attributes: {
+        DRI_SCORE:  sd.score,
+        JOB_TITLE:  sd.jobTitle,
+        INDUSTRY:   sd.industry,
+        RISK_LEVEL: sd.riskLevel,
+        VERDICT:    sd.verdict,
+        TIMELINE:   sd.timeline,
+        TOP_TASKS:  (sd.tasks||[]).join(' | ')
+      }
     })
+  })
     .then(function(){ showPostEmail(); })
     .catch(function(){ showPostEmail(); }); // Show success even if Brevo call fails — don't block the UX
   };
