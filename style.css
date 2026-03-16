@@ -1022,42 +1022,14 @@ table.cookie-table tr:nth-child(even) td { background: var(--off); }
 }
 
 /* Ensure backgrounds stretch, but text aligns to 1440px */
-section, footer {
-  padding-left: max(5%, calc((100% - 1440px) / 2)) !important;
-  padding-right: max(5%, calc((100% - 1440px) / 2)) !important;
+@media (min-width: 1460px) {
+  section, footer {
+    padding-left: max(5%, calc((100% - 1440px) / 2)) !important;
+    padding-right: max(5%, calc((100% - 1440px) / 2)) !important;
+  }
 }
 
 /* Force Market Reality inner div to expand to the full 1440px */
 #reality > div {
   max-width: none !important;
-}
-
-@media (max-width: 991px) {
-  /* Hide the desktop nav links */
-  .nav-links {
-    display: none;
-  }
-  
-  /* Ensure the hamburger button is visible */
-  .hamburger {
-    display: flex;
-  }
-  
-  /* Stack the hero section vertically */
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 6rem 5% 3rem; /* Adjust padding for mobile */
-    gap: 2rem;
-  }
-
-  /* Make sure other multi-column sections stack properly too */
-  .what-grid,
-  .scores-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Optional: Adjust hero text sizes for mobile */
-  .hero h1 {
-    font-size: 2.5rem;
-  }
 }
