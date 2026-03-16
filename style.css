@@ -113,7 +113,7 @@ nav {
   align-items:center;
   padding:clamp(5rem, 10vh, 9rem) 5% clamp(3rem, 6vh, 5rem);
   gap:4rem;
-  position:relative;overflow:hidden;
+  position:relative; overflow:hidden; contain:paint;
 }
 .hero::before{
   content:'';position:absolute;
