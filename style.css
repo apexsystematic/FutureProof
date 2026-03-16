@@ -113,7 +113,7 @@ nav {
   align-items:center;
   padding:clamp(5rem, 10vh, 9rem) 5% clamp(3rem, 6vh, 5rem);
   gap:4rem;
-  position:relative; overflow:hidden;
+  position:relative;overflow:hidden;
 }
 .hero::before{
   content:'';position:absolute;
@@ -1014,38 +1014,17 @@ table.cookie-table tr:nth-child(even) td { background: var(--off); }
 }
 
 /* Legal Mobile Overrides */
-@media(max-width: 991px) {
-  .nav-links {
-    display: none;
-  }
-  
-  .hamburger {
-    display: flex;
-  }
-  
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 6rem 5% 3rem;
-    gap: 2rem;
-  }
-
-  .what-grid,
-  .scores-grid,
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hero h1 {
-    font-size: 2.4rem;
-  }
+@media(max-width: 700px) {
+  .page-header { padding: 7rem 5% 3rem !important; }
+  .tos-body { padding: 3rem 5% 4rem; }
+  .rights-grid { grid-template-columns: 1fr; }
+  table.cookie-table { font-size: 0.78rem; display: block; overflow-x: auto; }
 }
 
 /* Ensure backgrounds stretch, but text aligns to 1440px */
-@media (min-width: 1460px) {
-  section, footer {
-    padding-left: max(5%, calc((100% - 1440px) / 2)) !important;
-    padding-right: max(5%, calc((100% - 1440px) / 2)) !important;
-  }
+section, footer {
+  padding-left: max(5%, calc((100% - 1440px) / 2)) !important;
+  padding-right: max(5%, calc((100% - 1440px) / 2)) !important;
 }
 
 /* Force Market Reality inner div to expand to the full 1440px */
