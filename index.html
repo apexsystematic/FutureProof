@@ -799,7 +799,7 @@
 </main>
 
 <div id="footer-placeholder"></div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="footer.js"></script>
+<script src="footer.js"></script>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
@@ -919,4 +919,13 @@
   }
 
   /* ── INIT ALL ── */
-  function
+  function initSample(){
+    initSampleTabs();
+    initScoreObserver();
+  }
+  (document.readyState==='loading')?document.addEventListener('DOMContentLoaded',initSample):initSample();
+
+})();
+</script>
+</body>
+</html>
