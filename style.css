@@ -1014,11 +1014,30 @@ table.cookie-table tr:nth-child(even) td { background: var(--off); }
 }
 
 /* Legal Mobile Overrides */
-@media(max-width: 700px) {
-  .page-header { padding: 7rem 5% 3rem !important; }
-  .tos-body { padding: 3rem 5% 4rem; }
-  .rights-grid { grid-template-columns: 1fr; }
-  table.cookie-table { font-size: 0.78rem; display: block; overflow-x: auto; }
+@media(max-width: 991px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 6rem 5% 3rem;
+    gap: 2rem;
+  }
+
+  .what-grid,
+  .scores-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero h1 {
+    font-size: 2.4rem;
+  }
 }
 
 /* Ensure backgrounds stretch, but text aligns to 1440px */
