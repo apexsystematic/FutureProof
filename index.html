@@ -769,7 +769,7 @@
       </div>
   
       <div>
-        <form class="contact-form" action="#" method="POST">
+        <form class="contact-form" id="contactForm" action="#" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label for="fname">First Name</label>
@@ -789,6 +789,7 @@
             <textarea id="message" rows="4" placeholder="Ask us anything — about the methodology, your specific situation, or the audit process." required ></textarea>
           </div>
           <button type="submit" class="btn btn-gold">Send Message →</button>
+          <p id="contactFormStatus" style="margin-top:12px;font-size:14px;min-height:20px;"></p>
         </form>
       </div>
     </div>
@@ -797,6 +798,51 @@
 
 <div id="footer-placeholder"></div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="footer.js"></script>
+
+<script>
+(function(){
+  var WEBHOOK_URL = 'YOUR_MAKE_WEBHOOK_URL';
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = this.querySelector('button[type="submit"]');
+    var statusEl = document.getElementById('contactFormStatus');
+
+    var payload = {
+      firstName: document.getElementById('fname').value.trim(),
+      lastName:  document.getElementById('lname').value.trim(),
+      email:     document.getElementById('email').value.trim(),
+      message:   document.getElementById('message').value.trim(),
+      source:    'homepage-contact'
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    statusEl.textContent = '';
+
+    try {
+      var res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        statusEl.textContent = "Message sent. We'll respond within one business day.";
+        statusEl.style.color = '#2ecc71';
+        this.reset();
+      } else {
+        throw new Error('bad response');
+      }
+    } catch(err) {
+      statusEl.textContent = 'Something went wrong. Please email us directly.';
+      statusEl.style.color = '#e74c3c';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message \u2192';
+    }
+  });
+})();
+</script>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
