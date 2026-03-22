@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Free AI Displacement Risk Score — FutureProof</title>
 <meta name="description" content="Find out how exposed your career is to AI automation. Get your free Displacement Risk Index score in 30 seconds.">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-A1JrlhL3t5cy2SZ8du7L1.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -462,14 +469,6 @@ footer a:hover{color:var(--gold);}
   .form-card{padding:1.8rem;}
 }
 </style>
-
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-A1JrlhL3t5cy2SZ8du7L1.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
-
 </head>
 <body>
 
@@ -793,8 +792,8 @@ footer a:hover{color:var(--gold);}
 
       var parsed = JSON.parse(text);
       stopLoading();
-      setTimeout(function(){ showResult(parsed, jobTitle, industry); }, 500);
       plausible('Free Score Completed', { props: { dri_band: parsed.risk_level || 'Unknown' } });
+      setTimeout(function(){ showResult(parsed, jobTitle, industry); }, 500);
     })
     .catch(function(err){
       console.error(err);
