@@ -78,7 +78,7 @@
     <!-- <a href="#testimonials">Client Outcomes</a> -->
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
-    <a href="score.html" class="btn btn-gold btn-sm" style="color:#fff;">Get My Free Score</a>
+    <a href="score.html" class="btn btn-gold btn-sm" style="color:#fff;" onclick="plausible('Free Score CTA Clicked')">Get My Free Score</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -94,7 +94,7 @@
   <!-- <a href="#testimonials" class="mobile-link">Client Outcomes</a> -->
   <a href="#pricing" class="mobile-link">Pricing</a>
   <a href="#faq" class="mobile-link">FAQ</a>
-  <a href="score.html" class="btn btn-gold mobile-link">Get My Free Score</a>
+  <a href="score.html" class="btn btn-gold mobile-link" onclick="plausible('Free Score CTA Clicked')">Get My Free Score</a>
 </div>
 
 <main>
@@ -106,7 +106,7 @@
         Stop guessing about automation. FutureProof analyzes your actual resume to reveal your immediate risk—and gives you a concrete plan to protect your job.
       </p>
       <div class="hero-actions animate delay-4">
-        <a href="score.html" class="btn btn-gold">Get My Free Score</a>
+        <a href="score.html" class="btn btn-gold" onclick="plausible('Free Score CTA Clicked')">Get My Free Score</a>
         <a href="#what" class="btn btn-outline">View The Executive Audit</a>
       </div>
     </div>
@@ -432,7 +432,7 @@
               </div>
               <div class="smp-unlock">
                 <p class="smp-unlock-txt">Pathways 2 &amp; 3 and the full bibliography are in your report.</p>
-                <a href="https://buy.stripe.com/eVq00ifLs1wA3Safj2dIA02" class="btn btn-gold">Get My Executive Audit &rarr;</a>
+                <a href="https://buy.stripe.com/eVq00ifLs1wA3Safj2dIA02" class="btn btn-gold" onclick="plausible('Executive Audit CTA Clicked')">Get My Executive Audit &rarr;</a>
               </div>
             </div>
           </div>
@@ -448,7 +448,7 @@
     <p class="smp-disclaimer">Profile anonymised. Sector, role, and task data reflect a real audit delivered Q4 2025.<br>Your report will be built from your resume and reflect your actual career profile.</p>
     <div class="smp-bottom-cta">
       <p class="smp-bottom-cta-txt">Ready to see your own numbers?</p>
-      <a href="score.html" class="btn btn-gold">Get My Free Risk Score</a>
+      <a href="score.html" class="btn btn-gold" onclick="plausible('Free Score CTA Clicked')">Get My Free Risk Score</a>
     </div>
   </section>
   
@@ -569,7 +569,7 @@
           <li><span class="check">✓</span>General industry vulnerability overview</li>
           <li><span class="check">✓</span>3 top exposed tasks identified</li>
         </ul>
-        <a href="score.html" class="btn btn-outline" style="display:block;text-align:center;">Get My Free Score</a>
+        <a href="score.html" class="btn btn-outline" style="display:block;text-align:center;" onclick="plausible('Free Score CTA Clicked')">Get My Free Score</a>
       </div>
   
       <div class="price-card featured">
@@ -588,7 +588,7 @@
           <li><span class="check">✓</span>Step-by-step 12-month execution plan</li>
           <li><span class="check" style="color:var(--gold-lt);">★</span> <strong>Every report reviewed by a human analyst — only sent after approval</strong></li>
         </ul>
-        <a href="https://buy.stripe.com/eVq00ifLs1wA3Safj2dIA02" class="btn btn-gold" style="display:block;text-align:center;">Apply for the Audit</a>
+        <a href="https://buy.stripe.com/eVq00ifLs1wA3Safj2dIA02" class="btn btn-gold" style="display:block;text-align:center;" onclick="plausible('Executive Audit CTA Clicked')">Apply for the Audit</a>
       </div>
   
   </div>
@@ -747,7 +747,7 @@
       <p style="color: var(--muted); max-width: 600px; margin: 0 auto 2rem; line-height: 1.6; font-size: 1.05rem;">
         The professionals who get hurt by AI disruption aren’t the ones with the riskiest jobs. They’re the ones who found out too late. You already sense something is changing. The question is whether you find out on your terms — or the market’s.
       </p>
-      <a href="score.html" class="btn btn-gold" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+      <a href="score.html" class="btn btn-gold" style="font-size: 1.1rem; padding: 1rem 2.5rem;" onclick="plausible('Free Score CTA Clicked')">
         Get My Free Baseline Score →
       </a>
     </div>
@@ -849,6 +849,7 @@
         statusEl.style.color = '#2ecc71';
         this.reset();
         turnstile.reset();
+        plausible('Contact Form Submitted');
       } else {
         throw new Error('bad response');
       }

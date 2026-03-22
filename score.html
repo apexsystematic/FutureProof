@@ -786,6 +786,7 @@ footer a:hover{color:var(--gold);}
       var parsed = JSON.parse(text);
       stopLoading();
       setTimeout(function(){ showResult(parsed, jobTitle, industry); }, 500);
+      plausible('Free Score Completed', { props: { dri_band: parsed.risk_level || 'Unknown' } });
     })
     .catch(function(err){
       console.error(err);
@@ -888,7 +889,10 @@ footer a:hover{color:var(--gold);}
     }
   })
   })
-    .then(function(){ showPostEmail(); })
+    .then(function(){
+      plausible('Email Submitted');
+      showPostEmail();
+    })
     .catch(function(){ showPostEmail(); }); // Show success even if Brevo call fails — don't block the UX
   };
 
