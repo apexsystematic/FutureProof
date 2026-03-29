@@ -104,18 +104,8 @@ main{
 .subline{
   font-size:1rem;font-weight:300;line-height:1.7;
   color:rgba(255,255,255,0.55);
-  margin-bottom:1.5rem;
-  max-width:480px;
-}
-
-.disclaimer{
-  font-size:0.82rem;font-weight:300;line-height:1.6;
-  color:rgba(255,255,255,0.4);
   margin-bottom:3rem;
   max-width:480px;
-  padding:0.8rem 1rem;
-  border-left:2px solid var(--gold);
-  background:rgba(184,150,62,0.05);
 }
 
 /* ── FORM CARD ── */
@@ -493,7 +483,6 @@ footer a:hover{color:var(--gold);}
   <div class="eyebrow">Free Assessment</div>
   <h1 class="headline">What's Your<br><em>AI Displacement</em><br>Risk Score?</h1>
   <p class="subline">Enter your role and industry. Get your Displacement Risk Index™ score in 10 seconds — no signup required.</p>
-  <p class="disclaimer">Note: This baseline score uses limited data—the full Executive Audit analyzes your resume in depth, which may reveal significantly different risk factors and opportunities.</p>
 
   <!-- FORM CARD -->
   <div class="form-card" id="formCard">
@@ -546,14 +535,14 @@ footer a:hover{color:var(--gold);}
         <label for="seniority">Seniority Level</label>
         <div class="select-wrap">
           <select id="seniority">
-  <option value="" disabled selected>Select level</option>
-  <option>Self-Employed / Freelance</option>
-  <option>Junior / Entry level</option>
-  <option>Mid-level</option>
-  <option>Senior</option>
-  <option>Manager / Team lead</option>
-  <option>Director</option>
-  <option>VP / C-Suite</option>
+            <option value="" disabled selected>Select level</option>
+            <!--<option>Self-Employed / Freelance</option>-->
+            <option>Junior / Entry level</option>
+            <option>Mid-level</option>
+            <option>Senior</option>
+            <option>Manager / Team lead</option>
+            <option>Director</option>
+            <option>VP / C-Suite</option>
           </select>
         </div>
       </div>
@@ -591,7 +580,6 @@ footer a:hover{color:var(--gold);}
       <div class="score-display" id="scoreDisplay"></div>
       <div class="risk-badge" id="riskBadge"></div>
       <p class="verdict-text" id="verdictText"></p>
-      <p class="disclaimer" style="margin-top:1.5rem;text-align:center;max-width:100%;">This baseline is calculated from four data points. The full Executive Audit analyzes your actual resume and may reveal significantly different risk factors and pivot opportunities.</p>
     </div>
 
     <div class="result-bar-section">
@@ -659,10 +647,8 @@ footer a:hover{color:var(--gold);}
 (function(){
 
   /* ── CONFIG ── */
-  // Replace with your Cloudflare Worker URL once deployed (Step 10 in the guide)
-  // For local testing, you can use the Anthropic API directly (expose key temporarily)
-  var API_URL = 'https://futureproof-free-score.apexsystematic.workers.dev'; // ← replace this
-  var BREVO_LIST_ID = 6; // ← replace with your Free Score Leads list ID (integer, e.g. 3)
+  var API_URL = 'https://futureproof-free-score.apexsystematic.workers.dev';
+  var BREVO_LIST_ID = 6;
 
   /* ── HELPERS ── */
   function $(id){ return document.getElementById(id); }
