@@ -1036,6 +1036,7 @@
       <a href="https://futureproof.report" target="_blank" rel="noopener">futureproof.report</a>
     </div>
   </div>
+  <div id="fp-nudge">Have a question? Ask me anything.</div>
   <button id="fp-launcher" aria-label="Open FutureProof chat">
     <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
       <text x="16" y="22" font-family="Playfair Display, Georgia, serif" font-size="18"
@@ -1150,6 +1151,18 @@
   input.addEventListener('input', function() {
     input.style.height = 'auto';
     input.style.height = Math.min(input.scrollHeight, 80) + 'px';
+  });
+
+// Show nudge after 15 seconds if chat hasn't been opened
+  var nudge = document.getElementById('fp-nudge');
+  var nudgeTimer = setTimeout(function() {
+    if (!isOpen) nudge.classList.add('fp-nudge-visible');
+  }, 15000);
+
+  // Hide nudge when launcher is clicked
+  launcher.addEventListener('click', function() {
+    nudge.classList.remove('fp-nudge-visible');
+    clearTimeout(nudgeTimer);
   });
 
   if (quickbar) {
