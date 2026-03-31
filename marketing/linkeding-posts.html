@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FutureProof — LinkedIn Content Plan</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --gold:        #b8963e;
+      --gold-light:  #d4ae5e;
+      --gold-pale:   #f5edd8;
+      --gold-dark:   #9a7020;
+      --ink:         #0f0f0f;
+      --ink-soft:    #2e2e2e;
+      --slate:       #4a4a4a;
+      --muted:       #6b6b6b;
+      --rule:        #e2d9c8;
+      --bg-page:     #faf9f7;
+      --bg-dark:     #111111;
+      --bg-section:  #f0ebe2;
+      --white:       #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 10pt; background: var(--bg-page); }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--bg-page);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: var(--bg-dark);
+      padding: 60px 56px 52px;
+      margin-bottom: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      top: 88px; left: 56px; right: 56px;
+      height: 1px;
+      background: rgba(184,150,62,0.3);
+    }
+    .cover-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--white);
+      letter-spacing: 0.03em;
+      margin-bottom: 32px;
+    }
+    .cover-brand em { font-style: italic; font-weight: 400; color: var(--gold); }
+
+    .cover-kicker {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .cover-title em { font-style: italic; font-weight: 400; color: var(--gold-light); }
+
+    .cover-meta {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── WEEK HEADER ── */
+    .week-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 56px 0 32px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--rule);
+    }
+    .week-badge {
+      background: var(--bg-dark);
+      color: var(--gold);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+    }
+    .week-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* ── POST CARD ── */
+    .post-card {
+      margin-bottom: 56px;
+      border: 1px solid var(--rule);
+      background: var(--white);
+    }
+
+    .post-header {
+      background: var(--bg-section);
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--rule);
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .post-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold-dark);
+      line-height: 1;
+    }
+    .post-info {}
+    .post-day {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .post-type {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      margin-top: 2px;
+    }
+    .post-tag {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      border: 1px solid var(--gold);
+      padding: 4px 10px;
+    }
+
+    .post-body {
+      padding: 32px 28px;
+    }
+
+    /* ── GRAPHIC ── */
+    .post-graphic {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 1 / 1;
+      background: var(--bg-dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px 36px 28px;
+      margin: 0 auto 28px;
+    }
+    .post-graphic::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+    }
+    .post-graphic::after {
+      content: '';
+      position: absolute;
+      top: 60px; left: 36px; right: 36px;
+      height: 1px;
+      background: rgba(184,150,62,0.3);
+    }
+    .g-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--white);
+    }
+    .g-brand em { font-style: italic; font-weight: 400; color: var(--gold); }
+
+    .g-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px 0 12px;
+    }
+    .g-label {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .g-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+    .badge-moderate { color: #f39c12; border-color: rgba(243,156,18,0.4); }
+    .badge-low      { color: #27ae60; border-color: rgba(39,174,96,0.4); }
+
+    .g-number {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 80px;
+      line-height: 0.88;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .g-number .denom {
+      font-size: 28px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+      vertical-align: super;
+      margin-left: 2px;
+    }
+    .g-context {
+      margin-top: 14px;
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+    .g-context strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+    .g-rule {
+      width: 28px; height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+      margin: 16px 0;
+    }
+    .g-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .g-stat-label {
+      font-size: 8px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .g-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .g-footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .g-footer-tag {
+      font-size: 7.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .g-footer-url {
+      font-size: 7.5px;
+      letter-spacing: 0.07em;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    /* Split stat graphic variant */
+    .g-split { display: flex; flex-direction: column; gap: 0; }
+    .g-split-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .g-split-row:last-child { border-bottom: none; }
+    .g-split-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.4;
+      max-width: 160px;
+    }
+    .g-split-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .g-split-value.gold { color: var(--gold-light); }
+    .g-split-value.muted { color: rgba(255,255,255,0.3); font-size: 20px; }
+
+    /* Quote graphic variant */
+    .g-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.45;
+      color: var(--white);
+      font-weight: 400;
+    }
+    .g-quote em { color: var(--gold-light); font-style: normal; }
+
+    /* No graphic note */
+    .no-graphic {
+      background: var(--bg-section);
+      border: 1px dashed var(--rule);
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      font-size: 10px;
+      color: var(--muted);
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* ── POST TEXT ── */
+    .post-text {
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      white-space: pre-line;
+      margin-bottom: 24px;
+    }
+
+    /* ── HASHTAGS ── */
+    .hashtag-block {
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+    }
+    .hashtag-label {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .hashtags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hashtag {
+      font-size: 10px;
+      color: var(--gold-dark);
+      background: var(--gold-pale);
+      padding: 3px 10px;
+      font-weight: 500;
+    }
+
+    /* ── NOTE BOX ── */
+    .note-box {
+      background: var(--bg-section);
+      border-left: 3px solid var(--gold);
+      padding: 14px 20px;
+      margin-top: 16px;
+      font-size: 10px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .note-box strong { color: var(--ink); font-weight: 600; }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 64px 0 0;
+    }
+
+    /* Print */
+    @media print {
+      body { padding: 20px; }
+      .post-card { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-brand">Future<em>Proof</em></div>
+  <div class="cover-kicker">LinkedIn Content Plan</div>
+  <div class="cover-title">6 Posts.<br><em>Two Weeks.</em></div>
+  <div class="cover-meta">Jorge Rivero &nbsp;·&nbsp; @FutureProof &amp; Apex Systematic &nbsp;·&nbsp; EN · ES</div>
+</div>
+
+
+<!-- ════════════════ WEEK 1 ════════════════ -->
+<div class="week-header">
+  <div class="week-badge">Week 1</div>
+  <div class="week-title">Establish · Prove · Invite</div>
+</div>
+
+
+<!-- POST 1 -->
+<div class="post-card">
+  <div class="post-header">
+    <div class="post-meta">
+      <div class="post-number">01</div>
+      <div class="post-info">
+        <div class="post-day">Monday · Week 1</div>
+        <div class="post-type">Origin Story — Who you are &amp; why you built this</div>
+      </div>
+    </div>
+    <div class="post-tag">No Image</div>
+  </div>
+  <div class="post-body">
+
+    <div class="no-graphic">Plain text only — narrative posts outperform images on LinkedIn. No graphic needed.</div>
+
+    <div class="post-text">My wife came to me worried that AI was going to replace her job.
+
+She's a director-level consultant with a decade of experience and a postgraduate degree from the London School of Hygiene and Tropical Medicine. Smart, senior, genuinely accomplished.
+
+And she had no idea whether she was actually at risk or not.
+
+Everything she found online was vague, generic, and built around job titles — not what she actually did every day.
+
+So I built her a real answer.
+
+Task by task. With a risk score, a timeline, and a specific plan.
+
+Her score was 22 out of 100. She had 48 months of runway and a credential moat that AI can't touch. She didn't need to panic — she needed to make one quiet move, one hour a week, starting now.
+
+That became FutureProof.
+
+A career intelligence report that gives professionals their actual displacement risk — not their job title's risk — with a concrete action plan calibrated to their real life.
+
+If you want to know your number — free, two minutes — link in the comments.</div>
+
+    <div class="hashtag-block">
+      <div class="hashtag-label">Hashtags — paste below post, or in first comment</div>
+      <div class="hashtags">
+        <span class="hashtag">#AIDisplacement</span>
+        <span class="hashtag">#FutureOfWork</span>
+        <span class="hashtag">#CareerIntelligence</span>
+        <span class="hashtag">#AIRisk</span>
+        <span class="hashtag">#CareerDevelopment</span>
+        <span class="hashtag">#FutureProof</span>
+      </div>
+    </div>
+
+    <div class="note-box"><strong>Link placement:</strong> Always put the URL in the first comment, not the post body. LinkedIn suppresses reach on posts with external links in the text.</div>
+  </div>
+</div>
+
+
+<!-- POST 2 -->
+<div class="post-card">
+  <div class="post-header">
+    <div class="post-meta">
+      <div class="post-number">02</div>
+      <div class="post-info">
+        <div class="post-day">Wednesday · Week 1</div>
+        <div class="post-type">Case Study — The self-assessment gap (SEO Manager)</div>
+      </div>
+    </div>
+    <div class="post-tag">Include Image</div>
+  </div>
+  <div class="post-body">
+
+    <!-- GRAPHIC 2 -->
+    <div class="post-graphic">
+      <div class="g-brand">Future<em>Proof</em></div>
+      <div class="g-body">
+        <div class="g-label">Displacement Risk Index™</div>
+        <div class="g-badge badge-moderate">Moderate Risk</div>
+        <div class="g-number">51<span class="denom">/100</span></div>
+        <div class="g-context">
+          SEO Manager · 16 years experience<br>
+          <strong>Self-assessed risk: Low.</strong>
+        </div>
+        <div class="g-rule"></div>
+        <div class="g-stat">
+          <span class="g-stat-label">Time exposed</span>
+          <span class="g-stat-value">50%</span>
+        </div>
+      </div>
+      <div class="g-footer">
+        <span class="g-footer-tag">Career Risk Intelligence</span>
+        <span class="g-footer-url">futureproof.report</span>
+      </div>
+    </div>
+
+    <div class="post-text">We audited an SEO Manager with 16 years of experience recently.
+
+He rated his own AI risk as Low.
+
+His actual Displacement Risk Index: 51/100 — Moderate.
+
+The gap wasn't ignorance. He was one of the most AI-literate people we've assessed. He used AI tools daily in his work.
+
+The problem: he confused personal adaptability with structural role protection.
+
+They're not the same thing.
+
+His adaptability was real. But 40% of his working week — keyword research, technical audits, competitor analysis — scores 92/100 on automation exposure. Those tasks are already being performed by AI-native platforms commercially, today, at prices his clients can afford.
+
+His adaptability buys him time. It doesn't change what's happening to the task categories that pay his salary.
+
+This is the most common pattern we see. The professionals most likely to underestimate their risk are the ones already using AI — because using a tool feels like being safe from it.
+
+It isn't.
+
+Know your actual number. Link in comments.</div>
+
+    <div class="hashtag-block">
+      <div class="hashtag-label">Hashtags</div>
+      <div class="hashtags">
+        <span class="hashtag">#SEO</span>
+        <span class="hashtag">#AIDisplacement</span>
+        <span class="hashtag">#FutureOfWork</span>
+        <span class="hashtag">#CareerRisk</span>
+        <span class="hashtag">#DigitalMarketing</span>
+        <span class="hashtag">#AITools</span>
+        <span class="hashtag">#FutureProof</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 3 -->
+<div class="post-card">
+  <div class="post-header">
+    <div class="post-meta">
+      <div class="post-number">03</div>
+      <div class="post-info">
+        <div class="post-day">Friday · Week 1</div>
+        <div class="post-type">Direct CTA — Free score offer</div>
+      </div>
+    </div>
+    <div class="post-tag">No Image</div>
+  </div>
+  <div class="post-body">
+
+    <div class="no-graphic">Plain text — clean CTA posts convert better without visual distraction.</div>
+
+    <div class="post-text">If you don't know your AI displacement risk score, you're making career decisions blind.
+
+Not your job title's risk. Yours — based on how you actually spend your working week.
+
+A title tells you almost nothing. Two people with the same job title at the same company can have completely different exposure profiles depending on what they actually do all day.
+
+FutureProof calculates your personal Displacement Risk Index — free, two minutes, no email required to see your score.
+
+Over 50 means act early.
+Over 70 means act now.
+
+Link in comments.</div>
+
+    <div class="hashtag-block">
+      <div class="hashtag-label">Hashtags</div>
+      <div class="hashtags">
+        <span class="hashtag">#CareerDevelopment</span>
+        <span class="hashtag">#FutureOfWork</span>
+        <span class="hashtag">#AIRisk</span>
+        <span class="hashtag">#CareerPlanning</span>
+        <span class="hashtag">#ArtificialIntelligence</span>
+        <span class="hashtag">#JobSecurity</span>
+        <span class="hashtag">#FutureProof</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════ WEEK 2 ════════════════ -->
+<hr class="section-divider">
+<div class="week-header">
+  <div class="week-badge">Week 2</div>
+  <div class="week-title">Deepen · Humanise · Price</div>
+</div>
+
+
+<!-- POST 4 -->
+<div class="post-card">
+  <div class="post-header">
+    <div class="post-meta">
+      <div class="post-number">04</div>
+      <div class="post-info">
+        <div class="post-day">Monday · Week 2</div>
+        <div class="post-type">Case Study — Overestimating risk (Pharma Director)</div>
+      </div>
+    </div>
+    <div class="post-tag">Include Image</div>
+  </div>
+  <div class="post-body">
+
+    <!-- GRAPHIC 4 -->
+    <div class="post-graphic">
+      <div class="g-brand">Future<em>Proof</em></div>
+      <div class="g-body">
+        <div class="g-label">Displacement Risk Index™</div>
+        <div class="g-badge badge-low">Low Risk</div>
+        <div class="g-number">22<span class="denom">/100</span></div>
+        <div class="g-context">
+          Pharma Market Access Director · 10 years<br>
+          <strong>Self-assessed risk: Moderate.</strong>
+        </div>
+        <div class="g-rule"></div>
+        <div class="g-stat">
+          <span class="g-stat-label">Risk horizon</span>
+          <span class="g-stat-value">48 mo</span>
+        </div>
+      </div>
+      <div class="g-footer">
+        <span class="g-footer-tag">Career Risk Intelligence</span>
+        <span class="g-footer-url">futureproof.report</span>
+      </div>
+    </div>
+
+    <div class="post-text">Most people think they know their AI risk.
+
+Most people are wrong — but not in the direction you'd expect.
+
+We recently audited a pharmaceutical market access director. Senior role. Decade of experience. Pharmacy license. Postgraduate degree from the London School of Hygiene and Tropical Medicine.
+
+She rated her own risk as Moderate.
+
+Her actual Displacement Risk Index: 22/100 — one of the lowest scores we've seen.
+
+She was overestimating her risk.
+
+The tools automating her sector are eliminating junior and mid-level work first. Her credential stack and regulatory expertise sit behind a moat that AI can't cross on any near-term timeline.
+
+She has 48 months of runway. She thought she had 18.
+
+That changes your strategy entirely.
+
+Overestimating your risk is just as dangerous as underestimating it. It leads to panic pivots, unnecessary retraining, and decisions made from fear rather than data.
+
+Know your actual number. Link in comments.</div>
+
+    <div class="hashtag-block">
+      <div class="hashtag-label">Hashtags</div>
+      <div class="hashtags">
+        <span class="hashtag">#Pharma</span>
+        <span class="hashtag">#MarketAccess</span>
+        <span class="hashtag">#AIDisplacement</span>
+        <span class="hashtag">#FutureOfWork</span>
+        <span class="hashtag">#CareerIntelligence</span>
+        <span class="hashtag">#HealthcareJobs</span>
+        <span class="hashtag">#FutureProof</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 5 -->
+<div class="post-card">
+  <div class="post-header">
+    <div class="post-meta">
+      <div class="post-number">05</div>
+      <div class="post-info">
+        <div class="post-day">Wednesday · Week 2</div>
+        <div class="post-type">Human Story — Real constraints, real plan</div>
+      </div>
+    </div>
+    <div class="post-tag">Include Image</div>
+  </div>
+  <div class="post-body">
+
+    <!-- GRAPHIC 5 -->
+    <div class="post-graphic">
+      <div class="g-brand">Future<em>Proof</em></div>
+      <div class="g-body">
+        <div class="g-label">Career Pivot · Real Constraints</div>
+        <div class="g-split">
+          <div class="g-split-row">
+            <span class="g-split-label">Free time per week</span>
+            <span class="g-split-value gold">1 hr</span>
+          </div>
+          <div class="g-split-row">
+            <span class="g-split-label">New certifications required</span>
+            <span class="g-split-value muted">0</span>
+          </div>
+          <div class="g-split-row">
+            <span class="g-split-label">New technical skills required</span>
+            <span class="g-split-value muted">0</span>
+          </div>
+          <div class="g-split-row">
+            <span class="g-split-label">Projected salary uplift</span>
+            <span class="g-split-value gold">+$25K</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-footer">
+        <span class="g-footer-tag">Career Risk Intelligence</span>
+        <span class="g-footer-url">futureproof.report</span>
+      </div>
+    </div>
+
+    <div class="post-text">She had a newborn at home.
+
+A director-level job managing 10 parallel projects.
+
+Zero free time.
+
+When we delivered her FutureProof report, the 12-month pivot roadmap was built around exactly one hour per week — because that's all she had, and a plan that doesn't fit your life isn't a plan.
+
+The entire strategy: no new certifications, no courses, no technical upskilling. Just the systematic conversion of her existing consulting relationships into manufacturer-side career opportunities.
+
+One targeted conversation per week.
+
+That's it.
+
+Most career advice assumes you have unlimited time and energy. Most people don't. Especially not the people who need this most — senior professionals in demanding roles, managing real lives.
+
+Your plan has to fit your actual life. Not the version of your life where you have 10 free hours a week.
+
+Get your free score. Link in comments.</div>
+
+    <div class="hashtag-block">
+      <div class="hashtag-label">Hashtags</div>
+      <div class="hashtags">
+        <span class="hashtag">#WorkingParents</span>
+        <span class="hashtag">#CareerPivot</span>
+        <span class="hashtag">#FutureOfWork</span>
+        <span class="hashtag">#AIDisplacement</span>
+        <span class="hashtag">#CareerDevelopment</span>
+        <span class="hashtag">#CareerAdvice</span>
+        <span class="hashtag">#FutureProof</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 6 -->
+<div class="post-card">
+  <div class="post-header">
+    <div class="post-meta">
+      <div class="post-number">06</div>
+      <div class="post-info">
+        <div class="post-day">Friday · Week 2</div>
+        <div class="post-type">Origin + Price Reveal — The conviction behind it</div>
+      </div>
+    </div>
+    <div class="post-tag">Include Image</div>
+  </div>
+  <div class="post-body">
+
+    <!-- GRAPHIC 6 -->
+    <div class="post-graphic">
+      <div class="g-brand">Future<em>Proof</em></div>
+      <div class="g-body">
+        <div class="g-label">Career Intelligence Report</div>
+        <div class="g-quote">
+          "Not a report.<br>
+          <em>A decision.</em>"
+        </div>
+        <div class="g-rule"></div>
+        <div class="g-context" style="max-width:260px;">
+          Your risk score. Your timeline.<br>Your first step.<br>
+          <strong>$995 · futureproof.report</strong>
+        </div>
+      </div>
+      <div class="g-footer">
+        <span class="g-footer-tag">Career Risk Intelligence</span>
+        <span class="g-footer-url">futureproof.report</span>
+      </div>
+    </div>
+
+    <div class="post-text">After I built my wife's report, I looked at it for a long time.
+
+22 out of 100. Lower than almost anyone we've assessed. Her credentials, her regulatory expertise, her decade of relationships in pharmaceutical market access — a genuine moat.
+
+But her sector is in active AI disruption. The tools are eliminating the layer below her right now. That layer grows up. The 48-month runway is real — but only if she starts the right move in the next 12 months, not the last 12.
+
+The report told her exactly what to do. One hour a week. No new credentials. Specific conversations with specific people.
+
+I built FutureProof because that's the answer everyone deserves.
+
+Not "AI might affect your job."
+
+Your number. Your timeline. Your first step.
+
+That's what $995 buys. Not a report. A decision.
+
+Free score in the comments — because I want you to know your number before you decide anything.</div>
+
+    <div class="hashtag-block">
+      <div class="hashtag-label">Hashtags</div>
+      <div class="hashtags">
+        <span class="hashtag">#CareerIntelligence</span>
+        <span class="hashtag">#AIDisplacement</span>
+        <span class="hashtag">#FutureOfWork</span>
+        <span class="hashtag">#CareerRisk</span>
+        <span class="hashtag">#FutureProof</span>
+        <span class="hashtag">#ArtificialIntelligence</span>
+        <span class="hashtag">#CareerPlanning</span>
+      </div>
+    </div>
+
+    <div class="note-box"><strong>Pricing note:</strong> This is the first post that names the $995 price directly. By week two you've established credibility through two case studies and a human story. The price lands differently here than it would have on day one.</div>
+  </div>
+</div>
+
+
+</body>
+</html>
