@@ -998,5 +998,168 @@
 
 })();
 </script>
+  
+<!-- ═══════════════════════════════════════════
+     FUTUREPROOF CHAT WIDGET
+     Proxied via Cloudflare Worker — no API key exposed
+════════════════════════════════════════════ -->
+<div id="fp-widget">
+  <div id="fp-panel">
+    <div id="fp-header">
+      <div>
+        <div id="fp-brand">Future<em>Proof</em></div>
+        <div id="fp-tagline">Career Intelligence</div>
+        <div id="fp-status">
+          <div id="fp-status-dot"></div>
+          <span id="fp-status-text">Online</span>
+        </div>
+      </div>
+      <button id="fp-close" aria-label="Close chat">&#x00D7;</button>
+    </div>
+    <div id="fp-messages"></div>
+    <div id="fp-quickbar">
+      <button class="fp-quick" data-q="What is FutureProof?">What is FutureProof?</button>
+      <button class="fp-quick" data-q="How does the free score work?">Free score</button>
+      <button class="fp-quick" data-q="What does the $995 report include?">Full report</button>
+      <button class="fp-quick" data-q="How is this different from other AI career tools?">vs. other tools</button>
+    </div>
+    <div id="fp-input-row">
+      <textarea id="fp-input" rows="1" placeholder="Ask about your AI displacement risk…" aria-label="Message"></textarea>
+      <button id="fp-send" aria-label="Send">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M14 2L2 8L7 9L8 14L14 2Z" fill="#111111"/>
+        </svg>
+      </button>
+    </div>
+    <div id="fp-footer">
+      Powered by FutureProof &nbsp;·&nbsp;
+      <a href="https://futureproof.report" target="_blank" rel="noopener">futureproof.report</a>
+    </div>
+  </div>
+  <button id="fp-launcher" aria-label="Open FutureProof chat">
+    <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+      <text x="16" y="22" font-family="Playfair Display, Georgia, serif" font-size="18"
+            font-weight="700" text-anchor="middle" fill="#b8963e">F</text>
+    </svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  var FP_ENDPOINT = 'https://futureproof-webchatbot.apexsystematic.workers.dev';
+
+  var FP_SYSTEM = 'You are the FutureProof career intelligence assistant. FutureProof is a premium career advisory service founded by Jorge Rivero that helps professionals understand their personal AI displacement risk — not their job title\'s risk, but their actual risk based on the tasks they perform each day.\n\nCORE PRODUCTS:\n- FREE 2-minute risk score at futureproof.report — no email required. Always the entry point.\n- FutureProof Executive Audit — full Career Intelligence Report at $995\n\nTHE $995 REPORT INCLUDES:\n- Displacement Risk Index (DRI): 0–100 personal score. Under 30 = Low. 30–60 = Moderate. Over 60 = High (act early). Over 70 = Act now.\n- Pivot Readiness Score\n- 12-month action roadmap built around the client\'s actual constraints (time, family, finances, existing skills)\n- Specific timeline in months of runway before meaningful disruption\n- Task-level analysis, not job-title-level\n\nKEY INSIGHTS:\n- Adaptability is not structural role protection. Using AI tools daily does not mean being safe from AI displacement.\n- Senior professionals with credential moats often overestimate risk — just as dangerous as underestimating it.\n- Plans are built around real life: one client had a newborn and only one hour per week. That was her plan.\n- The report is a decision, not a document.\n\nTONE: Precise, calm, authoritative. Premium. Not chatty or generic. Concise but substantive. Do not speculate about a specific person\'s risk without them completing the assessment. Guide them to the free score first. Do not give generic career advice.\n\nALWAYS GUIDE TOWARD:\n1. Free 2-minute score at futureproof.report\n2. $995 Executive Audit for the complete picture\n\nKeep responses under 180 words. Be direct.';
+
+  var WELCOME = 'Welcome. I\'m here to help you understand FutureProof and whether it\'s right for you.\n\nMost professionals know their job title\'s AI risk. That\'s almost useless — two people with the same title can have completely different exposure profiles based on what they actually do every day.\n\nFutureProof gives you your personal number.\n\nGet your free score in two minutes at futureproof.report — no email required. Or ask me anything.';
+
+  var history = [];
+  var isOpen = false;
+  var isLoading = false;
+
+  var panel     = document.getElementById('fp-panel');
+  var launcher  = document.getElementById('fp-launcher');
+  var closeBtn  = document.getElementById('fp-close');
+  var msgs      = document.getElementById('fp-messages');
+  var quickbar  = document.getElementById('fp-quickbar');
+  var input     = document.getElementById('fp-input');
+  var sendBtn   = document.getElementById('fp-send');
+  var statusTxt = document.getElementById('fp-status-text');
+
+  function addMsg(role, text) {
+    var d = document.createElement('div');
+    d.className = 'fp-msg fp-' + role;
+    d.textContent = text;
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function showTyping() {
+    var t = document.createElement('div');
+    t.id = 'fp-typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(t);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function removeTyping() {
+    var t = document.getElementById('fp-typing');
+    if (t) t.remove();
+  }
+
+  function setLoading(val) {
+    isLoading = val;
+    sendBtn.disabled = val;
+    statusTxt.textContent = val ? 'Thinking\u2026' : 'Online';
+  }
+
+  function sendMessage(text) {
+    text = (text || input.value).trim();
+    if (!text || isLoading) return;
+    if (quickbar) quickbar.style.display = 'none';
+    addMsg('user', text);
+    history.push({ role: 'user', content: text });
+    input.value = '';
+    input.style.height = 'auto';
+    setLoading(true);
+    showTyping();
+    fetch(FP_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ system: FP_SYSTEM, messages: history })
+    })
+    .then(function(res) {
+      if (!res.ok) throw new Error('status ' + res.status);
+      return res.json();
+    })
+    .then(function(data) {
+      var reply = (data && data.content && data.content[0] && data.content[0].text)
+        ? data.content[0].text
+        : 'Something went wrong. Please try again.';
+      removeTyping();
+      addMsg('assistant', reply);
+      history.push({ role: 'assistant', content: reply });
+    })
+    .catch(function() {
+      removeTyping();
+      var e = document.createElement('div');
+      e.className = 'fp-error';
+      e.textContent = 'Connection error. Please try again.';
+      msgs.appendChild(e);
+    })
+    .finally(function() { setLoading(false); });
+  }
+
+  launcher.addEventListener('click', function() {
+    isOpen = !isOpen;
+    panel.classList.toggle('fp-open', isOpen);
+    if (isOpen && msgs.children.length === 0) addMsg('assistant', WELCOME);
+    if (isOpen) setTimeout(function(){ input.focus(); }, 280);
+  });
+
+  closeBtn.addEventListener('click', function() {
+    isOpen = false;
+    panel.classList.remove('fp-open');
+  });
+
+  sendBtn.addEventListener('click', function() { sendMessage(); });
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+
+  input.addEventListener('input', function() {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 80) + 'px';
+  });
+
+  if (quickbar) {
+    quickbar.addEventListener('click', function(e) {
+      var btn = e.target.closest('.fp-quick');
+      if (btn) sendMessage(btn.dataset.q);
+    });
+  }
+})();
+</script>
+  
 </body>
 </html>
