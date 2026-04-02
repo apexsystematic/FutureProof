@@ -195,6 +195,8 @@
   var history = [];
   var isOpen = false;
   var isLoading = false;
+  var summaryTimer = null;
+  var SUMMARY_DELAY = 5 * 60 * 1000; // 5 minutes
 
   var panel     = document.getElementById('fp-panel');
   var launcher  = document.getElementById('fp-launcher');
@@ -258,6 +260,17 @@
       removeTyping();
       addMsg('assistant', reply);
       history.push({ role: 'assistant', content: reply });
+      // Reset inactivity timer — fires summary after 5 min of silence
+      clearTimeout(summaryTimer);
+      summaryTimer = setTimeout(function() {
+        if (history.length > 0) {
+          fetch(FP_ENDPOINT + '/summary', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ conversation: history })
+          });
+        }
+      }, SUMMARY_DELAY);
     })
     .catch(function() {
       removeTyping();
