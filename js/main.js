@@ -263,12 +263,17 @@
       // Reset inactivity timer — fires summary after 5 min of silence
       clearTimeout(summaryTimer);
       summaryTimer = setTimeout(function() {
+        console.log('Summary timer fired. History length:', history.length);
         if (history.length > 0) {
+          console.log('Sending to:', FP_ENDPOINT + '/summary');
           fetch(FP_ENDPOINT + '/summary', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ conversation: history })
-          });
+          })
+          .then(function(res) { console.log('Summary response status:', res.status); return res.json(); })
+          .then(function(data) { console.log('Summary response:', data); })
+          .catch(function(err) { console.error('Summary fetch error:', err); });
         }
       }, SUMMARY_DELAY);
     })
