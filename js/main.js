@@ -196,7 +196,7 @@
   var isOpen = false;
   var isLoading = false;
   var summaryTimer = null;
-  var SUMMARY_DELAY = 5 * 60 * 1000; // 5 minutes
+  var SUMMARY_DELAY = 10 * 1000; // 5 minutes
 
   var panel     = document.getElementById('fp-panel');
   var launcher  = document.getElementById('fp-launcher');
