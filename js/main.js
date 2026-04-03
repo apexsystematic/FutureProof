@@ -196,7 +196,7 @@
   var isOpen = false;
   var isLoading = false;
   var summaryTimer = null;
-  var SUMMARY_DELAY = 10 * 1000; // 5 minutes
+  var SUMMARY_DELAY = 5 * 60 * 1000; // 5 minutes
 
   var panel     = document.getElementById('fp-panel');
   var launcher  = document.getElementById('fp-launcher');
@@ -206,6 +206,15 @@
   var input     = document.getElementById('fp-input');
   var sendBtn   = document.getElementById('fp-send');
   var statusTxt = document.getElementById('fp-status-text');
+
+  window.addEventListener('beforeunload', function() {
+    if (history.length > 0) {
+      navigator.sendBeacon(
+        FP_ENDPOINT + '/summary',
+        JSON.stringify({ conversation: history })
+      );
+    }
+  });
 
   function addMsg(role, text) {
     var d = document.createElement('div');
