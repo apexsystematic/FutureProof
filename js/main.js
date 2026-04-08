@@ -190,7 +190,7 @@
 (function(){
   var FP_ENDPOINT = 'https://futureproof-webchatbot.apexsystematic.workers.dev';
 
-  var WELCOME = 'Welcome. I\'m here to help you understand FutureProof and whether it\'s right for you.\n\nMost professionals know their job title\'s AI risk. That\'s almost useless — two people with the same title can have completely different exposure profiles based on what they actually do every day.\n\nFutureProof gives you your personal number.\n\nGet your free score in two minutes at futureproof.report — no email required. Or ask me anything.';
+  var WELCOME = 'Welcome. I can help you understand FutureProof and whether it\'s right for your situation.\n\nAsk me anything, or tap a question below.';
 
   var history = [];
   var isOpen = false;
