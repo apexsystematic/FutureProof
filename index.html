@@ -754,6 +754,40 @@
 
 <script src="js/main.js" defer></script>
 
+<script>
+  (function() {
+    var chatOpened = false;
+    var chatEngaged = false;
+
+    // Track chatbot opened
+    document.getElementById('fp-launcher').addEventListener('click', function() {
+      if (!chatOpened && typeof gtag === 'function') {
+        gtag('event', 'chatbot_opened');
+        chatOpened = true;
+      }
+    });
+
+    // Track first message sent (textarea + send button)
+    function trackEngaged() {
+      if (!chatEngaged && typeof gtag === 'function') {
+        gtag('event', 'chatbot_engaged');
+        chatEngaged = true;
+      }
+    }
+
+    document.getElementById('fp-send').addEventListener('click', trackEngaged);
+
+    document.getElementById('fp-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) trackEngaged();
+    });
+
+    // Track quick prompt buttons as engaged too
+    document.querySelectorAll('.fp-quick').forEach(function(btn) {
+      btn.addEventListener('click', trackEngaged);
+    });
+  })();
+</script>
+
   
 </body>
 </html>
