@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2HJFVQ4L10"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2HJFVQ4L10');
-</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -64,13 +55,6 @@
   }
 }
 </script>
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-A1JrlhL3t5cy2SZ8du7L1.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
-
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </head>
@@ -87,7 +71,7 @@
     <!-- <a href="#testimonials">Client Outcomes</a> -->
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
-    <a href="score.html" class="btn btn-gold btn-sm" style="color:#fff;" onclick="plausible('Free Score CTA Clicked')">Get My Free Score</a>
+    <a href="score.html" class="btn btn-gold btn-sm" style="color:#fff;" onclick="if(typeof gtag==='function')gtag('event','cta_clicked',{cta_name:'free_score'})">Get My Free Score</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -103,7 +87,7 @@
   <!-- <a href="#testimonials" class="mobile-link">Client Outcomes</a> -->
   <a href="#pricing" class="mobile-link">Pricing</a>
   <a href="#faq" class="mobile-link">FAQ</a>
-  <a href="score.html" class="btn btn-gold mobile-link" onclick="plausible('Free Score CTA Clicked')">Get My Free Score</a>
+  <a href="score.html" class="btn btn-gold mobile-link" onclick="if(typeof gtag==='function')gtag('event','cta_clicked',{cta_name:'free_score'})">Get My Free Score</a>
 </div>
 
 <main>
@@ -115,7 +99,7 @@
         Stop guessing about automation. FutureProof analyzes your actual resume to reveal your immediate risk—and gives you a concrete plan to protect your job.
       </p>
       <div class="hero-actions animate delay-4">
-        <a href="score.html" class="btn btn-gold" onclick="plausible('Free Score CTA Clicked')">Get My Free Score</a>
+        <a href="score.html" class="btn btn-gold" onclick="if(typeof gtag==='function')gtag('event','cta_clicked',{cta_name:'free_score'})">Get My Free Score</a>
         <a href="#what" class="btn btn-outline">View The Executive Audit</a>
       </div>
     </div>
@@ -446,7 +430,7 @@
                 </div>
                 <div class="rpt-unlock">
                   <p class="rpt-unlock-txt">Pathways 2 &amp; 3 and the full 12-month roadmap are in your report.</p>
-                  <a href="https://buy.stripe.com/eVq00ifLs1wA3Safj2dIA02" class="btn btn-gold" onclick="plausible('Executive Audit CTA Clicked')">Get My Executive Audit &rarr;</a>
+                  <a href="https://buy.stripe.com/eVq00ifLs1wA3Safj2dIA02" class="btn btn-gold" onclick="if(typeof gtag==='function')gtag('event','cta_clicked',{cta_name:'executive_audit'})">Get My Executive Audit &rarr;</a>
                 </div>
               </div>
             </div>
@@ -464,7 +448,7 @@
     <p class="smp-disclaimer">Profile anonymised. Sector, role, and task data reflect a real audit delivered Q1 2026.<br>Your report will be built from your resume and reflect your actual career profile.</p>
     <div class="smp-bottom-cta">
       <p class="smp-bottom-cta-txt">Ready to see your own numbers?</p>
-      <a href="score.html" class="btn btn-gold" onclick="plausible('Free Score CTA Clicked')">Get My Free Risk Score</a>
+      <a href="score.html" class="btn btn-gold" onclick="if(typeof gtag==='function')gtag('event','cta_clicked',{cta_name:'free_score'})">Get My Free Risk Score</a>
     </div>
   </section>
   
@@ -585,7 +569,7 @@
           <li><span class="check">✓</span>General industry vulnerability overview</li>
           <li><span class="check">✓</span>Top exposed tasks identified</li>
         </ul>
-        <a href="score.html" class="btn btn-outline" style="display:block;text-align:center;" onclick="plausible('Free Score CTA Clicked')">Get My Free Score</a>
+        <a href="score.html" class="btn btn-outline" style="display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','cta_clicked',{cta_name:'free_score'})">Get My Free Score</a>
       </div>
   
       <div class="price-card featured">
@@ -604,7 +588,7 @@
           <li><span class="check">✓</span>Step-by-step 12-month execution plan</li>
           <li><span class="check" style="color:var(--gold-lt);">★</span> <strong>Every report reviewed by a human analyst — only sent after approval</strong></li>
         </ul>
-        <a href="https://buy.stripe.com/eVq00ifLs1wA3Safj2dIA02" class="btn btn-gold" style="display:block;text-align:center;" onclick="plausible('Executive Audit CTA Clicked')">Get the Audit</a>
+        <a href="https://buy.stripe.com/eVq00ifLs1wA3Safj2dIA02" class="btn btn-gold" style="display:block;text-align:center;" onclick="if(typeof gtag==='function')gtag('event','cta_clicked',{cta_name:'executive_audit'})">Get the Audit</a>
       </div>
   
   </div>
@@ -651,7 +635,7 @@
       <p style="color: var(--muted); max-width: 600px; margin: 0 auto 2rem; line-height: 1.6; font-size: 1.05rem;">
         The professionals who get hurt by AI disruption aren’t the ones with the riskiest jobs. They’re the ones who found out too late. You already sense something is changing. The question is whether you find out on your terms — or the market’s.
       </p>
-      <a href="score.html" class="btn btn-gold" style="font-size: 1.1rem; padding: 1rem 2.5rem;" onclick="plausible('Free Score CTA Clicked')">
+      <a href="score.html" class="btn btn-gold" style="font-size: 1.1rem; padding: 1rem 2.5rem;" onclick="if(typeof gtag==='function')gtag('event','cta_clicked',{cta_name:'free_score'})">
         Get My Free Baseline Score →
       </a>
     </div>

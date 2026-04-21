@@ -1,26 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2HJFVQ4L10"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2HJFVQ4L10');
-</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Free AI Displacement Risk Score — FutureProof</title>
 <meta name="description" content="Find out how exposed your career is to AI automation. Get your free Displacement Risk Index score in 30 seconds.">
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-A1JrlhL3t5cy2SZ8du7L1.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -773,7 +757,7 @@ footer a:hover{color:var(--gold);}
  
       var parsed = JSON.parse(text);
       stopLoading();
-      plausible('Free Score Completed', { props: { dri_band: parsed.risk_level || 'Unknown' } });
+      if(typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'free_score_form' });
       setTimeout(function(){ showResult(parsed, jobTitle, industry); }, 500);
     })
     .catch(function(err){
@@ -878,7 +862,7 @@ footer a:hover{color:var(--gold);}
       })
     })
     .then(function(){
-      plausible('Email Submitted');
+      if(typeof gtag === 'function') gtag('event', 'email_captured', { method: 'score_result_gate' });
       showPostEmail();
     })
     .catch(function(){ showPostEmail(); }); // Show success even if Brevo call fails — don't block the UX
